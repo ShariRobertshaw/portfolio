@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shari Robertshaw - Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:wght@400&family=Instrument+Sans:wght@400;500;600&family=Geist+Mono:wght@400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="nav-container"></div>
+    
+    <main class="homepage">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <h1 class="hero-title fade-in-up">Product design grounded in curiosity, collaboration, and meaningful craft.</h1>
+            <a href="#contact" class="btn btn-primary"><span class="btn-text">Get in touch</span></a>
+        </section>
+
+        <!-- Work Section -->
+        <section class="work-section">
+            <div class="section-header">
+                <h2 class="section-label">Work</h2>
+            </div>
+            <div class="work-gallery">
+                <a href="project-hypa.html" class="work-item-link">
+                    <div class="work-item">
+                        <div class="work-card project-card">
+                            <img src="images/hypa-homepage.png" alt="HYPA Homepage" class="work-image">
+                        </div>
+                    </div>
+                </a>
+                <a href="project-gener8labs.html" class="work-item-link">
+                    <div class="work-item">
+                        <div class="work-card project-card">
+                            <img src="images/gener8labs-homepage.png" alt="Gener8Labs Homepage" class="work-image">
+                        </div>
+                    </div>
+                </a>
+                <a href="project-gener8.html" class="work-item-link">
+                    <div class="work-item">
+                        <div class="work-card project-card">
+                            <img src="images/gener8-homepage.png" alt="Gener8 Homepage" class="work-image">
+                        </div>
+                    </div>
+                </a>
+                <button class="scroll-arrow" aria-label="Scroll right">
+                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </button>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="about-section">
+            <div class="section-header">
+                <h2 class="section-label">About</h2>
+            </div>
+            <div class="about-content">
+                <p class="about-text fade-in-up">
+                    I am a <span class="serif">freelance web and product designer</span> with technical skills and lots of curiosity. I love creating beautiful things, experimenting with AI, and making every collaboration something we're proud to have brought to life.
+                </p>
+                <a href="about.html" class="btn btn-primary"><span class="btn-text">Learn more about me</span></a>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section class="services-section">
+            <div class="section-header">
+                <h2 class="section-label">Services</h2>
+            </div>
+            <div class="services-grid stagger-load">
+                <div class="service-card"><div class="service-card-inner">Product design</div></div>
+                <div class="service-card"><div class="service-card-inner">UX design</div></div>
+                <div class="service-card"><div class="service-card-inner">Web design</div></div>
+                <div class="service-card"><div class="service-card-inner">Design systems</div></div>
+                <div class="service-card"><div class="service-card-inner">UX Research</div></div>
+                <div class="service-card"><div class="service-card-inner">webflow build</div></div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact-section" id="contact">
+            <div class="section-header">
+                <h2 class="section-label">Get in touch</h2>
+            </div>
+            <div class="contact-content">
+                <p class="contact-text">
+                    Email me at <a href="#" class="email-link" id="email-link">hello@sharirobertshaw.com</a>
+                </p>
+                <p class="contact-text">
+                    Or find me on <a href="https://www.linkedin.com/in/sharirobertshaw/" target="_blank" rel="noopener noreferrer" class="linkedin-link">LinkedIn</a>
+                </p>
+            </div>
+            <div class="copy-message" id="copy-message">Email copied to clipboard!</div>
+        </section>
+    </main>
+
+    <div id="footer-container"></div>
+
+    <script src="components.js"></script>
+    <script src="scripts.js"></script>
+</body>
+</html>
+
