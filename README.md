@@ -12,6 +12,7 @@ A responsive portfolio website showcasing skills and work, built for GitHub Page
 - **LinkedIn Integration**: Direct link to LinkedIn profile
 - **Reusable Components**: Navigation and footer components for consistency
 
+
 ## Project Structure
 
 ```
