@@ -133,7 +133,7 @@ body {
     text-decoration: none;
     font-family: 'Instrument Sans', sans-serif;
     font-size: 16px;
-    font-weight: 500;
+    font-weight: 400;
     letter-spacing: 0.32px;
     border: none;
     cursor: pointer;
@@ -873,7 +873,7 @@ body {
 .accordion-title {
     font-family: 'Instrument Sans', sans-serif;
     font-size: 18px;
-    font-weight: 500;
+    font-weight: 400;
     color: var(--green-dark);
     margin: 0;
     text-transform: uppercase;
@@ -892,7 +892,7 @@ body {
 .accordion-role {
     font-family: 'Instrument Sans', sans-serif;
     font-size: 18px;
-    font-weight: 500;
+    font-weight: 400;
     color: var(--green-dark);
     margin-bottom: 4px;
 }
@@ -1128,7 +1128,7 @@ body {
     font-size: 18px;
     line-height: 30px;
     color: var(--green-dark);
-    font-weight: 500;
+    font-weight: 400;
     margin: 0;
 }
 
@@ -1193,7 +1193,7 @@ body {
     font-family: 'Geist Mono', monospace;
     font-size: 12px;
     line-height: 30px;
-    font-weight: 500;
+    font-weight: 400;
     color: var(--green-dark);
     background-color: var(--green-light);
     padding: 2px 16px;
@@ -1229,7 +1229,7 @@ body {
     font-size: 18px;
     line-height: 30px;
     color: var(--green-dark);
-    font-weight: 500;
+    font-weight: 400;
     margin: 0;
 }
 
@@ -1252,7 +1252,7 @@ body {
     font-size: 18px;
     line-height: 30px;
     color: var(--green-dark);
-    font-weight: 500;
+    font-weight: 400;
     margin: 0;
 }
 
