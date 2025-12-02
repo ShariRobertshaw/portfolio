@@ -471,22 +471,54 @@ body {
     cursor: default;
 }
 
+/* Custom Cursor Element */
+#custom-cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    width: 0;
+    height: 0;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: opacity 0.2s ease, width 0.2s ease, height 0.2s ease;
+}
+
+#custom-cursor.active {
+    opacity: 1;
+}
+
+.cursor-gener8 {
+    background-image: url('images/hover-gener8.png');
+    width: 100px;
+    height: 190px;
+}
+
+.cursor-hypa {
+    background-image: url('images/hover-hypa.png');
+    width: 160px;
+    height: 95px;
+}
+
+.cursor-gener8labs {
+    background-image: url('images/hover-gener8labs.png');
+    width: 100px;
+    height: 200px;
+}
+
+.service-card {
+    /* ... existing styles ... */
+}
+
 .service-card:hover {
     transform: translateY(-5px);
+    cursor: none; /* Hide default cursor on hover */
 }
 
-/* Custom cursors for service cards */
-.service-card-gener8:hover {
-    cursor: url('images/hover-gener8.png'), auto;
-}
-
-.service-card-hypa:hover {
-    cursor: url('images/hover-hypa.png'), auto;
-}
-
-.service-card-gener8labs:hover {
-    cursor: url('images/hover-gener8labs.png'), auto;
-}
 
 .service-card-inner {
     /* Removed transform */

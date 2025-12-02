@@ -287,6 +287,42 @@ function initAccordions() {
     });
 }
 
+// Initialize Custom Cursor
+function initCustomCursor() {
+    const cursor = document.createElement('div');
+    cursor.id = 'custom-cursor';
+    document.body.appendChild(cursor);
+
+    // Move cursor with mouse
+    document.addEventListener('mousemove', (e) => {
+        cursor.style.left = `${e.clientX}px`;
+        cursor.style.top = `${e.clientY}px`;
+    });
+
+    // Handle hover states
+    const serviceCards = document.querySelectorAll('.service-card');
+    
+    serviceCards.forEach(card => {
+        card.addEventListener('mouseenter', () => {
+            cursor.classList.add('active');
+            if (card.classList.contains('service-card-gener8')) {
+                cursor.classList.add('cursor-gener8');
+            } else if (card.classList.contains('service-card-hypa')) {
+                cursor.classList.add('cursor-hypa');
+            } else if (card.classList.contains('service-card-gener8labs')) {
+                cursor.classList.add('cursor-gener8labs');
+            }
+        });
+
+        card.addEventListener('mouseleave', () => {
+            cursor.classList.remove('active');
+            cursor.classList.remove('cursor-gener8');
+            cursor.classList.remove('cursor-hypa');
+            cursor.classList.remove('cursor-gener8labs');
+        });
+    });
+}
+
 // Initialize all functionality when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
     initEmailCopy();
@@ -295,4 +331,5 @@ document.addEventListener('DOMContentLoaded', () => {
     initScrollAnimations();
     initScrollFade();
     initAccordions();
+    initCustomCursor();
 });
