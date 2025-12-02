@@ -475,6 +475,19 @@ body {
     transform: translateY(-5px);
 }
 
+/* Custom cursors for service cards */
+.service-card-gener8:hover {
+    cursor: url('images/hover-gener8.png'), auto;
+}
+
+.service-card-hypa:hover {
+    cursor: url('images/hover-hypa.png'), auto;
+}
+
+.service-card-gener8labs:hover {
+    cursor: url('images/hover-gener8labs.png'), auto;
+}
+
 .service-card-inner {
     /* Removed transform */
 }
