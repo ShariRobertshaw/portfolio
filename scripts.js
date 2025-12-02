@@ -289,36 +289,53 @@ function initAccordions() {
 
 // Initialize Custom Cursor
 function initCustomCursor() {
-    const cursor = document.createElement('div');
-    cursor.id = 'custom-cursor';
-    document.body.appendChild(cursor);
+    const cursor = document.getElementById('custom-cursor');
+    // Fallback creation if it doesn't exist in HTML (which it doesn't by default in our current setup)
+    let cursorEl = cursor;
+    if (!cursorEl) {
+        cursorEl = document.createElement('div');
+        cursorEl.id = 'custom-cursor';
+        document.body.appendChild(cursorEl);
+        console.log('Custom cursor element created');
+    } else {
+        console.log('Custom cursor element found');
+    }
 
     // Move cursor with mouse
     document.addEventListener('mousemove', (e) => {
-        cursor.style.left = `${e.clientX}px`;
-        cursor.style.top = `${e.clientY}px`;
+        if (cursorEl) {
+            cursorEl.style.left = `${e.clientX}px`;
+            cursorEl.style.top = `${e.clientY}px`;
+        }
     });
 
     // Handle hover states
     const serviceCards = document.querySelectorAll('.service-card');
+    console.log('Service cards found:', serviceCards.length);
     
     serviceCards.forEach(card => {
         card.addEventListener('mouseenter', () => {
-            cursor.classList.add('active');
-            if (card.classList.contains('service-card-gener8')) {
-                cursor.classList.add('cursor-gener8');
-            } else if (card.classList.contains('service-card-hypa')) {
-                cursor.classList.add('cursor-hypa');
-            } else if (card.classList.contains('service-card-gener8labs')) {
-                cursor.classList.add('cursor-gener8labs');
+            console.log('Mouse enter card', card.className);
+            if (cursorEl) {
+                cursorEl.classList.add('active');
+                if (card.classList.contains('service-card-gener8')) {
+                    cursorEl.classList.add('cursor-gener8');
+                } else if (card.classList.contains('service-card-hypa')) {
+                    cursorEl.classList.add('cursor-hypa');
+                } else if (card.classList.contains('service-card-gener8labs')) {
+                    cursorEl.classList.add('cursor-gener8labs');
+                }
             }
         });
 
         card.addEventListener('mouseleave', () => {
-            cursor.classList.remove('active');
-            cursor.classList.remove('cursor-gener8');
-            cursor.classList.remove('cursor-hypa');
-            cursor.classList.remove('cursor-gener8labs');
+            console.log('Mouse leave card');
+            if (cursorEl) {
+                cursorEl.classList.remove('active');
+                cursorEl.classList.remove('cursor-gener8');
+                cursorEl.classList.remove('cursor-hypa');
+                cursorEl.classList.remove('cursor-gener8labs');
+            }
         });
     });
 }

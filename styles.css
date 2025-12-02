@@ -477,7 +477,7 @@ body {
     top: 0;
     left: 0;
     pointer-events: none;
-    z-index: 9999;
+    z-index: 999999;
     transform: translate(-50%, -50%);
     opacity: 0;
     width: 0;
@@ -485,7 +485,8 @@ body {
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
-    transition: opacity 0.2s ease;
+    transition: opacity 0.15s ease, width 0.15s ease, height 0.15s ease;
+    display: block;
 }
 
 #custom-cursor.active {
@@ -511,12 +512,26 @@ body {
 }
 
 .service-card {
-    /* ... existing styles ... */
+    background-color: var(--green-light);
+    padding: 30px 32px;
+    text-align: center;
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 40px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: var(--green-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    cursor: default;
+    position: relative;
 }
 
 .service-card:hover {
     transform: translateY(-5px);
-    cursor: none; /* Hide default cursor on hover */
+    cursor: none !important; /* Force hide default cursor */
 }
 
 
