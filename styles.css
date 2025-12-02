@@ -465,6 +465,7 @@ body {
     text-decoration: none !important;
     color: inherit;
     display: block;
+    transform: none !important; /* Prevent any transform on the link */
 }
 
 .service-card-link:visited,
@@ -488,9 +489,11 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.3s ease;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Only transition colors, not transform */
     cursor: pointer; /* Changed from default to pointer since it's now clickable */
     text-decoration: none !important; /* Ensure no underline on the card itself */
+    transform: none !important; /* Explicitly prevent any transform */
+    position: relative; /* Prevent any positioning shifts */
 }
 
 /* Custom Cursor Element */
@@ -591,9 +594,12 @@ body {
     position: relative;
 }
 
-.service-card:hover {
-    transform: none; /* Remove the lift effect */
+.service-card:hover,
+.service-card-link:hover .service-card {
+    transform: none !important; /* Explicitly prevent any transform on hover */
     cursor: none !important; /* Force hide default cursor */
+    margin: 0 !important; /* Prevent margin changes */
+    padding: 30px 32px !important; /* Keep padding consistent */
 }
 
 
