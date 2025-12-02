@@ -261,7 +261,9 @@ body {
 }
 
 .work-item-link:hover .work-card {
-    transform: translateY(-12px) scale(1.02);
+    /* Removed transform scaling of container */
+    transform: none;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* Keep shadow but don't move/scale */
 }
 
 .project-card {
@@ -282,6 +284,23 @@ body {
 
 .work-item-link:hover .work-image {
     transform: scale(1.05);
+}
+
+/* Green overlay on hover */
+.work-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: rgba(224, 231, 216, 0.3); /* var(--green-light) with opacity */
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none; /* Let clicks pass through to link */
+    border-radius: 40px; /* Match card border radius */
+    z-index: 10;
+}
+
+.work-item-link:hover .work-card::after {
+    opacity: 1;
 }
 
 .work-card-bg {
