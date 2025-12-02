@@ -467,6 +467,13 @@ body {
     display: block;
 }
 
+.service-card-link:visited,
+.service-card-link:active,
+.service-card-link:focus {
+    text-decoration: none;
+    color: inherit;
+}
+
 .service-card {
     background-color: var(--green-light);
     padding: 30px 32px;
