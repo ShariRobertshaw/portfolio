@@ -66,3 +66,29 @@
         padding: 0 20px;
     }
 }
+
+/* Quote Styles */
+.quote-text {
+    font-family: 'Instrument Serif', serif;
+    font-size: 40px; /* Estimated size */
+    line-height: 48px;
+    color: var(--green-dark);
+    margin-bottom: 16px;
+    font-weight: 400;
+}
+
+.quote-author {
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 14px;
+    line-height: 20px;
+    color: var(--green-dark);
+    margin: 0;
+    font-weight: 400;
+}
+
+@media (max-width: 768px) {
+    .quote-text {
+        font-size: 32px;
+        line-height: 40px;
+    }
+}
