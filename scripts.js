@@ -309,32 +309,31 @@ function initCustomCursor() {
         }
     });
 
-    // Handle hover states for service cards (() => {
-        const serviceCards = document.querySelectorAll('.service-card');
-        serviceCards.forEach(card => {
-            card.addEventListener('mouseenter', () => {
-                if (cursorEl) {
-                    cursorEl.classList.add('active');
-                    if (card.classList.contains('service-card-gener8')) {
-                        cursorEl.classList.add('cursor-gener8');
-                    } else if (card.classList.contains('service-card-hypa')) {
-                        cursorEl.classList.add('cursor-hypa');
-                    } else if (card.classList.contains('service-card-gener8labs')) {
-                        cursorEl.classList.add('cursor-gener8labs');
-                    }
+    // Handle hover states for service cards
+    const serviceCards = document.querySelectorAll('.service-card');
+    serviceCards.forEach(card => {
+        card.addEventListener('mouseenter', () => {
+            if (cursorEl) {
+                cursorEl.classList.add('active');
+                if (card.classList.contains('service-card-gener8')) {
+                    cursorEl.classList.add('cursor-gener8');
+                } else if (card.classList.contains('service-card-hypa')) {
+                    cursorEl.classList.add('cursor-hypa');
+                } else if (card.classList.contains('service-card-gener8labs')) {
+                    cursorEl.classList.add('cursor-gener8labs');
                 }
-            });
-
-            card.addEventListener('mouseleave', () => {
-                if (cursorEl) {
-                    cursorEl.classList.remove('active');
-                    cursorEl.classList.remove('cursor-gener8');
-                    cursorEl.classList.remove('cursor-hypa');
-                    cursorEl.classList.remove('cursor-gener8labs');
-                }
-            });
+            }
         });
-    }
+
+        card.addEventListener('mouseleave', () => {
+            if (cursorEl) {
+                cursorEl.classList.remove('active');
+                cursorEl.classList.remove('cursor-gener8');
+                cursorEl.classList.remove('cursor-hypa');
+                cursorEl.classList.remove('cursor-gener8labs');
+            }
+        });
+    });
 }
 
 // Initialize Tag Cursor for Project Cards
