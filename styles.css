@@ -485,26 +485,26 @@ body {
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
-    transition: opacity 0.2s ease, width 0.2s ease, height 0.2s ease;
+    transition: opacity 0.2s ease;
 }
 
 #custom-cursor.active {
     opacity: 1;
 }
 
-.cursor-gener8 {
+#custom-cursor.cursor-gener8 {
     background-image: url('images/hover-gener8.png');
     width: 100px;
     height: 190px;
 }
 
-.cursor-hypa {
+#custom-cursor.cursor-hypa {
     background-image: url('images/hover-hypa.png');
     width: 160px;
     height: 95px;
 }
 
-.cursor-gener8labs {
+#custom-cursor.cursor-gener8labs {
     background-image: url('images/hover-gener8labs.png');
     width: 100px;
     height: 200px;
