@@ -462,15 +462,16 @@ body {
 }
 
 .service-card-link {
-    text-decoration: none;
+    text-decoration: none !important;
     color: inherit;
     display: block;
 }
 
 .service-card-link:visited,
 .service-card-link:active,
-.service-card-link:focus {
-    text-decoration: none;
+.service-card-link:focus,
+.service-card-link:hover {
+    text-decoration: none !important;
     color: inherit;
 }
 
@@ -489,6 +490,7 @@ body {
     justify-content: center;
     transition: all 0.3s ease;
     cursor: pointer; /* Changed from default to pointer since it's now clickable */
+    text-decoration: none !important; /* Ensure no underline on the card itself */
 }
 
 /* Custom Cursor Element */
@@ -590,7 +592,7 @@ body {
 }
 
 .service-card:hover {
-    transform: translateY(-5px);
+    transform: none; /* Remove the lift effect */
     cursor: none !important; /* Force hide default cursor */
 }
 
