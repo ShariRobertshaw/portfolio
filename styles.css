@@ -936,6 +936,85 @@ body {
     margin: 0;
 }
 
+/* Companies Logo Marquee Section */
+.companies-section {
+    margin-bottom: 130px;
+    overflow: hidden;
+    position: relative;
+}
+
+.logo-marquee-container {
+    position: relative;
+    width: 100%;
+    margin-top: 40px;
+}
+
+.logo-marquee {
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 40px;
+    mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 90%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+}
+
+.logo-marquee-track {
+    display: flex;
+    gap: 80px;
+    align-items: center;
+    width: fit-content;
+    animation: scroll-marquee 60s linear infinite;
+}
+
+.logo-marquee-bottom .logo-marquee-track {
+    animation: scroll-marquee-reverse 60s linear infinite;
+}
+
+.logo-item {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80px;
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+}
+
+.logo-item:hover {
+    opacity: 1;
+}
+
+.logo-item img {
+    max-height: 80px;
+    max-width: 200px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    filter: grayscale(100%);
+    transition: filter 0.3s ease;
+}
+
+.logo-item:hover img {
+    filter: grayscale(0%);
+}
+
+@keyframes scroll-marquee {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+@keyframes scroll-marquee-reverse {
+    0% {
+        transform: translateX(-50%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
 /* Career Journey Section */
 .career-journey-section {
     margin-bottom: 130px;
