@@ -103,6 +103,7 @@
     margin-bottom: 40px;
     padding: 0 20px;
     position: relative;
+    min-height: 37px;
 }
 
 .project-nav-link {
@@ -171,18 +172,22 @@
     transform: translateX(120px);
 }
 
-.project-nav-next:hover ~ .project-nav-text-next {
+/* Hide next text when prev is hovered */
+.project-nav-prev:hover ~ .project-nav-text-next {
+    opacity: 0;
+    max-width: 0;
+}
+
+/* Show next text only when next arrow is hovered */
+.project-navigation:has(.project-nav-next:hover) .project-nav-text-next {
     opacity: 1;
     max-width: 200px;
 }
 
-/* Hide the other text when one is hovered */
-.project-nav-prev:hover ~ .project-nav-text-next {
-    opacity: 0;
-}
-
+/* Hide prev text when next is hovered */
 .project-navigation:has(.project-nav-next:hover) .project-nav-text-prev {
     opacity: 0;
+    max-width: 0;
 }
 
 @media (max-width: 768px) {
