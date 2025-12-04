@@ -118,10 +118,13 @@
 
 .project-nav-prev {
     margin-right: auto;
+    gap: 25px;
 }
 
 .project-nav-next {
     margin-left: auto;
+    flex-direction: row-reverse;
+    gap: 10px;
 }
 
 .project-nav-arrow {
@@ -146,10 +149,6 @@
     max-width: 0;
     overflow: hidden;
     transition: opacity 0.3s ease, max-width 0.3s ease;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 1;
     font-family: 'Geist Mono', monospace;
     font-size: 12px;
     font-weight: 400;
@@ -158,46 +157,32 @@
     pointer-events: none;
 }
 
-/* Default: both texts hidden */
-.project-nav-text-prev,
-.project-nav-text-next {
-    opacity: 0;
-    max-width: 0;
-}
-
-/* Hover effects - arrow slides away, text appears in center */
+/* Hover effects - arrow slides away, text appears */
 .project-nav-prev:hover .project-nav-arrow {
     transform: translateX(-120px);
+}
+
+.project-nav-prev:hover .project-nav-text {
+    opacity: 1;
+    max-width: 200px;
 }
 
 .project-nav-next:hover .project-nav-arrow {
     transform: translateX(120px);
 }
 
-/* Show prev text when prev arrow is hovered, hide next */
-.project-nav-prev:hover ~ .project-nav-text-prev {
+.project-nav-next:hover .project-nav-text {
     opacity: 1;
     max-width: 200px;
 }
 
-.project-nav-prev:hover ~ .project-nav-text-next {
+/* Hide text in the other link when one is hovered */
+.project-navigation:has(.project-nav-prev:hover) .project-nav-next .project-nav-text {
     opacity: 0;
     max-width: 0;
 }
 
-/* Show next text when next arrow is hovered, hide prev */
-.project-nav-next:hover ~ .project-nav-text-next {
-    opacity: 1;
-    max-width: 200px;
-}
-
-/* When next is hovered, hide prev text (it comes before next in DOM) */
-.project-navigation:hover .project-nav-text-prev:not(.project-nav-text-next) {
-    opacity: 0;
-    max-width: 0;
-}
-
-.project-navigation:has(.project-nav-next:hover) .project-nav-text-prev {
+.project-navigation:has(.project-nav-next:hover) .project-nav-prev .project-nav-text {
     opacity: 0;
     max-width: 0;
 }
