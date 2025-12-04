@@ -163,31 +163,49 @@
     transform: translateX(-120px);
 }
 
+.project-nav-next:hover .project-nav-arrow {
+    transform: translateX(120px);
+}
+
+/* Show prev text when prev arrow is hovered */
 .project-nav-prev:hover ~ .project-nav-text-prev {
     opacity: 1;
     max-width: 200px;
 }
 
-.project-nav-next:hover .project-nav-arrow {
-    transform: translateX(120px);
-}
-
 /* Hide next text when prev is hovered */
 .project-nav-prev:hover ~ .project-nav-text-next {
-    opacity: 0;
-    max-width: 0;
+    opacity: 0 !important;
+    max-width: 0 !important;
 }
 
-/* Show next text only when next arrow is hovered */
-.project-navigation:has(.project-nav-next:hover) .project-nav-text-next {
+/* Show next text when next arrow is hovered */
+.project-nav-next:hover ~ .project-nav-text-next {
     opacity: 1;
     max-width: 200px;
 }
 
-/* Hide prev text when next is hovered */
-.project-navigation:has(.project-nav-next:hover) .project-nav-text-prev {
+/* Hide prev text when next is hovered - need to target it differently */
+.project-navigation .project-nav-text-prev {
     opacity: 0;
     max-width: 0;
+}
+
+.project-navigation .project-nav-text-next {
+    opacity: 0;
+    max-width: 0;
+}
+
+/* Override when prev is hovered */
+.project-navigation:hover .project-nav-prev:hover ~ .project-nav-text-prev {
+    opacity: 1;
+    max-width: 200px;
+}
+
+/* Override when next is hovered */
+.project-navigation:hover .project-nav-next:hover ~ .project-nav-text-next {
+    opacity: 1;
+    max-width: 200px;
 }
 
 @media (max-width: 768px) {
