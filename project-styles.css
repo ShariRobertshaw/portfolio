@@ -98,33 +98,29 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 104px;
+    gap: 0;
     margin-top: 40px;
     margin-bottom: 40px;
     padding: 0 20px;
+    position: relative;
 }
 
 .project-nav-link {
     display: flex;
     align-items: center;
+    justify-content: center;
     text-decoration: none;
-    color: var(--green-dark);
-    font-family: 'Geist Mono', monospace;
-    font-size: 12px;
-    font-weight: 400;
-    text-transform: uppercase;
     transition: all 0.3s ease;
     position: relative;
+    z-index: 2;
 }
 
 .project-nav-prev {
-    flex-direction: row;
-    gap: 25px;
+    margin-right: auto;
 }
 
 .project-nav-next {
-    flex-direction: row-reverse;
-    gap: 10px;
+    margin-left: auto;
 }
 
 .project-nav-arrow {
@@ -145,18 +141,47 @@
 
 .project-nav-text {
     white-space: nowrap;
-    opacity: 1;
-    transition: opacity 0.3s ease;
-    position: relative;
+    opacity: 0;
+    max-width: 0;
+    overflow: hidden;
+    transition: opacity 0.3s ease, max-width 0.3s ease;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+    font-family: 'Geist Mono', monospace;
+    font-size: 12px;
+    font-weight: 400;
+    text-transform: uppercase;
+    color: var(--green-dark);
+    pointer-events: none;
 }
 
-/* Hover effects - arrow slides away from text */
+/* Hover effects - arrow slides away, text appears in center */
 .project-nav-prev:hover .project-nav-arrow {
-    transform: translateX(-25px);
+    transform: translateX(-120px);
+}
+
+.project-nav-prev:hover ~ .project-nav-text-prev {
+    opacity: 1;
+    max-width: 200px;
 }
 
 .project-nav-next:hover .project-nav-arrow {
-    transform: translateX(25px);
+    transform: translateX(120px);
+}
+
+.project-nav-next:hover ~ .project-nav-text-next,
+.project-navigation:hover .project-nav-text-next {
+    opacity: 0;
+}
+
+.project-navigation:hover .project-nav-prev:hover ~ .project-nav-text-next {
+    opacity: 0;
+}
+
+.project-navigation:hover .project-nav-next:hover ~ .project-nav-text-prev {
+    opacity: 0;
 }
 
 @media (max-width: 768px) {
