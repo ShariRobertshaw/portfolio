@@ -144,10 +144,10 @@
 .project-nav-text {
     white-space: nowrap;
     opacity: 0;
-    transition: opacity 0.3s ease, transform 0.3s ease;
-    position: relative;
-    width: 0;
+    max-width: 0;
     overflow: hidden;
+    transition: opacity 0.3s ease, transform 0.3s ease, max-width 0.3s ease;
+    position: relative;
 }
 
 /* Initial state - hide text */
@@ -167,7 +167,7 @@
 .project-nav-prev:hover .project-nav-text {
     opacity: 1;
     transform: translateX(0);
-    width: auto;
+    max-width: 200px;
 }
 
 .project-nav-next:hover .project-nav-arrow {
@@ -177,7 +177,7 @@
 .project-nav-next:hover .project-nav-text {
     opacity: 1;
     transform: translateX(0);
-    width: auto;
+    max-width: 200px;
 }
 
 @media (max-width: 768px) {
