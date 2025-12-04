@@ -144,12 +144,22 @@
 .project-nav-text {
     white-space: nowrap;
     opacity: 0;
-    transform: translateX(0);
     transition: opacity 0.3s ease, transform 0.3s ease;
     position: relative;
+    width: 0;
+    overflow: hidden;
 }
 
-/* Hover effects */
+/* Initial state - hide text */
+.project-nav-prev .project-nav-text {
+    transform: translateX(-20px);
+}
+
+.project-nav-next .project-nav-text {
+    transform: translateX(20px);
+}
+
+/* Hover effects - arrow slides and text reveals */
 .project-nav-prev:hover .project-nav-arrow {
     transform: translateX(-8px);
 }
@@ -157,6 +167,7 @@
 .project-nav-prev:hover .project-nav-text {
     opacity: 1;
     transform: translateX(0);
+    width: auto;
 }
 
 .project-nav-next:hover .project-nav-arrow {
@@ -166,15 +177,7 @@
 .project-nav-next:hover .project-nav-text {
     opacity: 1;
     transform: translateX(0);
-}
-
-/* Initial state - show arrow, hide text */
-.project-nav-prev .project-nav-text {
-    transform: translateX(-20px);
-}
-
-.project-nav-next .project-nav-text {
-    transform: translateX(20px);
+    width: auto;
 }
 
 @media (max-width: 768px) {
