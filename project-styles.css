@@ -171,16 +171,17 @@
     transform: translateX(120px);
 }
 
-.project-nav-next:hover ~ .project-nav-text-next,
-.project-navigation:hover .project-nav-text-next {
+.project-nav-next:hover ~ .project-nav-text-next {
+    opacity: 1;
+    max-width: 200px;
+}
+
+/* Hide the other text when one is hovered */
+.project-nav-prev:hover ~ .project-nav-text-next {
     opacity: 0;
 }
 
-.project-navigation:hover .project-nav-prev:hover ~ .project-nav-text-next {
-    opacity: 0;
-}
-
-.project-navigation:hover .project-nav-next:hover ~ .project-nav-text-prev {
+.project-navigation:has(.project-nav-next:hover) .project-nav-text-prev {
     opacity: 0;
 }
 
