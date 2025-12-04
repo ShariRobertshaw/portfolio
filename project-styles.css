@@ -158,6 +158,13 @@
     pointer-events: none;
 }
 
+/* Default: both texts hidden */
+.project-nav-text-prev,
+.project-nav-text-next {
+    opacity: 0;
+    max-width: 0;
+}
+
 /* Hover effects - arrow slides away, text appears in center */
 .project-nav-prev:hover .project-nav-arrow {
     transform: translateX(-120px);
@@ -167,45 +174,32 @@
     transform: translateX(120px);
 }
 
-/* Show prev text when prev arrow is hovered */
+/* Show prev text when prev arrow is hovered, hide next */
 .project-nav-prev:hover ~ .project-nav-text-prev {
     opacity: 1;
     max-width: 200px;
 }
 
-/* Hide next text when prev is hovered */
 .project-nav-prev:hover ~ .project-nav-text-next {
-    opacity: 0 !important;
-    max-width: 0 !important;
+    opacity: 0;
+    max-width: 0;
 }
 
-/* Show next text when next arrow is hovered */
+/* Show next text when next arrow is hovered, hide prev */
 .project-nav-next:hover ~ .project-nav-text-next {
     opacity: 1;
     max-width: 200px;
 }
 
-/* Hide prev text when next is hovered - need to target it differently */
-.project-navigation .project-nav-text-prev {
+/* When next is hovered, hide prev text (it comes before next in DOM) */
+.project-navigation:hover .project-nav-text-prev:not(.project-nav-text-next) {
     opacity: 0;
     max-width: 0;
 }
 
-.project-navigation .project-nav-text-next {
+.project-navigation:has(.project-nav-next:hover) .project-nav-text-prev {
     opacity: 0;
     max-width: 0;
-}
-
-/* Override when prev is hovered */
-.project-navigation:hover .project-nav-prev:hover ~ .project-nav-text-prev {
-    opacity: 1;
-    max-width: 200px;
-}
-
-/* Override when next is hovered */
-.project-navigation:hover .project-nav-next:hover ~ .project-nav-text-next {
-    opacity: 1;
-    max-width: 200px;
 }
 
 @media (max-width: 768px) {
