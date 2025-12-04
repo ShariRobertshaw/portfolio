@@ -92,3 +92,99 @@
         line-height: 40px;
     }
 }
+
+/* Project Navigation */
+.project-navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 100px;
+    margin-bottom: 80px;
+    padding: 0 20px;
+}
+
+.project-nav-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: var(--green-dark);
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.project-nav-prev {
+    flex-direction: row;
+}
+
+.project-nav-next {
+    flex-direction: row-reverse;
+}
+
+.project-nav-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+}
+
+.nav-arrow-icon {
+    width: 24px;
+    height: 24px;
+    display: block;
+}
+
+.project-nav-text {
+    white-space: nowrap;
+    opacity: 0;
+    transform: translateX(0);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    position: relative;
+}
+
+/* Hover effects */
+.project-nav-prev:hover .project-nav-arrow {
+    transform: translateX(-8px);
+}
+
+.project-nav-prev:hover .project-nav-text {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.project-nav-next:hover .project-nav-arrow {
+    transform: translateX(8px);
+}
+
+.project-nav-next:hover .project-nav-text {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Initial state - show arrow, hide text */
+.project-nav-prev .project-nav-text {
+    transform: translateX(-20px);
+}
+
+.project-nav-next .project-nav-text {
+    transform: translateX(20px);
+}
+
+@media (max-width: 768px) {
+    .project-navigation {
+        margin-top: 60px;
+        margin-bottom: 40px;
+        padding: 0 16px;
+    }
+    
+    .project-nav-link {
+        font-size: 14px;
+    }
+}
