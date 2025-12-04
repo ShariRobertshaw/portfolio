@@ -118,13 +118,10 @@
 
 .project-nav-prev {
     margin-right: auto;
-    gap: 25px;
 }
 
 .project-nav-next {
     margin-left: auto;
-    flex-direction: row-reverse;
-    gap: 10px;
 }
 
 .project-nav-arrow {
@@ -149,6 +146,10 @@
     max-width: 0;
     overflow: hidden;
     transition: opacity 0.3s ease, max-width 0.3s ease;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
     font-family: 'Geist Mono', monospace;
     font-size: 12px;
     font-weight: 400;
@@ -157,32 +158,35 @@
     pointer-events: none;
 }
 
-/* Hover effects - arrow slides away, text appears */
+/* Hover effects - arrow slides away, text appears in center */
 .project-nav-prev:hover .project-nav-arrow {
     transform: translateX(-120px);
-}
-
-.project-nav-prev:hover .project-nav-text {
-    opacity: 1;
-    max-width: 200px;
 }
 
 .project-nav-next:hover .project-nav-arrow {
     transform: translateX(120px);
 }
 
-.project-nav-next:hover .project-nav-text {
+/* Show prev text when prev arrow is hovered */
+.project-nav-prev:hover ~ .project-nav-text-prev {
     opacity: 1;
     max-width: 200px;
 }
 
-/* Hide text in the other link when one is hovered */
-.project-navigation:has(.project-nav-prev:hover) .project-nav-next .project-nav-text {
+/* Hide next text when prev is hovered */
+.project-nav-prev:hover ~ .project-nav-text-next {
     opacity: 0;
     max-width: 0;
 }
 
-.project-navigation:has(.project-nav-next:hover) .project-nav-prev .project-nav-text {
+/* Show next text when next arrow is hovered */
+.project-nav-next:hover ~ .project-nav-text-next {
+    opacity: 1;
+    max-width: 200px;
+}
+
+/* Hide prev text when next is hovered - use :has for better browser support fallback */
+.project-navigation:has(.project-nav-next:hover) .project-nav-text-prev {
     opacity: 0;
     max-width: 0;
 }
