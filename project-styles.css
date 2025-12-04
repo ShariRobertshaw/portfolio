@@ -98,32 +98,33 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 60px;
-    margin-top: 100px;
-    margin-bottom: 80px;
+    gap: 104px;
+    margin-top: 40px;
+    margin-bottom: 40px;
     padding: 0 20px;
 }
 
 .project-nav-link {
     display: flex;
     align-items: center;
-    gap: 12px;
     text-decoration: none;
     color: var(--green-dark);
-    font-family: 'Instrument Sans', sans-serif;
-    font-size: 16px;
+    font-family: 'Geist Mono', monospace;
+    font-size: 12px;
     font-weight: 400;
+    text-transform: uppercase;
     transition: all 0.3s ease;
     position: relative;
-    overflow: hidden;
 }
 
 .project-nav-prev {
     flex-direction: row;
+    gap: 25px;
 }
 
 .project-nav-next {
     flex-direction: row-reverse;
+    gap: 10px;
 }
 
 .project-nav-arrow {
@@ -144,41 +145,18 @@
 
 .project-nav-text {
     white-space: nowrap;
-    opacity: 0;
-    max-width: 0;
-    overflow: hidden;
-    transition: opacity 0.3s ease, transform 0.3s ease, max-width 0.3s ease;
+    opacity: 1;
+    transition: opacity 0.3s ease;
     position: relative;
 }
 
-/* Initial state - hide text */
-.project-nav-prev .project-nav-text {
-    transform: translateX(-20px);
-}
-
-.project-nav-next .project-nav-text {
-    transform: translateX(20px);
-}
-
-/* Hover effects - arrow slides and text reveals */
+/* Hover effects - arrow slides away from text */
 .project-nav-prev:hover .project-nav-arrow {
-    transform: translateX(-8px);
-}
-
-.project-nav-prev:hover .project-nav-text {
-    opacity: 1;
-    transform: translateX(0);
-    max-width: 200px;
+    transform: translateX(-25px);
 }
 
 .project-nav-next:hover .project-nav-arrow {
-    transform: translateX(8px);
-}
-
-.project-nav-next:hover .project-nav-text {
-    opacity: 1;
-    transform: translateX(0);
-    max-width: 200px;
+    transform: translateX(25px);
 }
 
 @media (max-width: 768px) {
