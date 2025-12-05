@@ -1418,7 +1418,7 @@ body {
 
 /* Hero Image Section */
 .project-hero-image-section {
-    margin-bottom: 68px;
+    margin-bottom: 0;
     padding: 67px 0;
 }
 
