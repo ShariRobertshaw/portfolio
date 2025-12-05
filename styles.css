@@ -1158,6 +1158,34 @@ body {
     object-fit: contain;
 }
 
+/* Media Grid for Two Images */
+.project-media-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    max-width: 916px;
+    margin: 0 auto;
+    padding: 0 32px;
+}
+
+.media-item {
+    background-color: var(--green-light);
+    border-radius: 30px;
+    padding: 16px 88px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 624px;
+}
+
+.media-item .project-main-image {
+    width: 100%;
+    height: auto;
+    max-height: 582px;
+    display: block;
+    object-fit: contain;
+}
+
 /* Case Study Section */
 .project-case-study {
     margin-bottom: 88px;
@@ -1355,6 +1383,22 @@ body {
     }
     
     .project-main-image {
+        max-height: 300px;
+    }
+    
+    .project-media-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        padding: 0 16px;
+    }
+    
+    .media-item {
+        padding: 16px;
+        min-height: 300px;
+        border-radius: 24px;
+    }
+    
+    .media-item .project-main-image {
         max-height: 300px;
     }
     

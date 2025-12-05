@@ -15,4 +15,15 @@
     object-fit: cover; /* Ensure it fills the space */
 }
 
+/* Wireframe container - matches Figma design width of 1376px */
+.wireframe-container {
+    max-width: 1376px !important;
+    padding: 16px 32px !important;
+    min-height: 685px !important;
+}
+
+.wireframe-container .project-main-image {
+    max-height: 685px !important;
+}
+
 
