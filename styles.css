@@ -235,7 +235,7 @@ body {
     padding: 0 32px;
     display: flex;
     flex-direction: column;
-    gap: 130px;
+    gap: 90px;
 }
 
 /* Hero Section */
@@ -566,6 +566,8 @@ body {
 /* About Section */
 .about-section {
     display: flex;
+    margin-top: 80px;
+    margin-bottom: 80px;
     flex-direction: column;
     gap: 24px;
 }
@@ -942,7 +944,7 @@ body {
     }
 
     .about-text {
-        font-size: 28px;
+        font-size: 32px;
         line-height: 36px;
     }
 
@@ -983,7 +985,7 @@ body {
     }
 
     .about-text {
-        font-size: 22px;
+        font-size: 28px;
         line-height: 28px;
     }
 
