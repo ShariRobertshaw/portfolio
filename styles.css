@@ -92,9 +92,10 @@ body {
 .hamburger-menu {
     display: none;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
+    gap: 10px;
     width: 32px;
-    height: 24px;
+    height: auto;
     background: transparent;
     border: none;
     cursor: pointer;
@@ -114,11 +115,11 @@ body {
 }
 
 .hamburger-menu.active .hamburger-line:nth-child(1) {
-    transform: translateY(11px) rotate(45deg);
+    transform: translateY(5px) rotate(45deg);
 }
 
 .hamburger-menu.active .hamburger-line:nth-child(2) {
-    transform: translateY(-11px) rotate(-45deg);
+    transform: translateY(-5px) rotate(-45deg);
 }
 
 /* Mobile Menu Overlay */
