@@ -1487,7 +1487,6 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 624px;
 }
 
 .project-main-image {
