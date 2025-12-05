@@ -1350,7 +1350,7 @@ body {
     margin: 0 auto;
     background-color: var(--green-light);
     border-radius: 30px;
-    padding: 16px 88px;
+    padding: 16px 48px;
     display: flex;
     align-items: center;
     justify-content: center;
