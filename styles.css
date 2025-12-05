@@ -261,7 +261,9 @@ body {
 }
 
 .work-item-link:hover .work-card {
-    transform: translateY(-12px) scale(1.02);
+    /* Removed transform scaling of container */
+    transform: none;
+    box-shadow: none; /* Remove drop shadow as requested */
 }
 
 .project-card {
@@ -281,7 +283,12 @@ body {
 }
 
 .work-item-link:hover .work-image {
-    transform: scale(1.05);
+    transform: none; /* Remove zoom as requested */
+}
+
+/* Green overlay removed as requested */
+.work-card::after {
+    display: none;
 }
 
 .work-card-bg {
@@ -454,6 +461,121 @@ body {
     gap: 24px;
 }
 
+.service-card-link {
+    text-decoration: none !important;
+    color: inherit;
+    display: block;
+    transform: none !important; /* Prevent any transform on the link */
+}
+
+.service-card-link:visited,
+.service-card-link:active,
+.service-card-link:focus,
+.service-card-link:hover {
+    text-decoration: none !important;
+    color: inherit;
+}
+
+.service-card {
+    background-color: var(--green-light);
+    padding: 30px 32px;
+    text-align: center;
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 40px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: var(--green-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Only transition colors, not transform */
+    cursor: pointer; /* Changed from default to pointer since it's now clickable */
+    text-decoration: none !important; /* Ensure no underline on the card itself */
+    transform: none !important; /* Explicitly prevent any transform */
+    position: relative; /* Prevent any positioning shifts */
+}
+
+/* Custom Cursor Element */
+#custom-cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 999999;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    width: 0;
+    height: 0;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: opacity 0.15s ease, width 0.15s ease, height 0.15s ease;
+    display: block;
+}
+
+#custom-cursor.active {
+    opacity: 1;
+}
+
+#custom-cursor.cursor-gener8 {
+    background-image: url('images/hover-gener8.png');
+    width: 100px;
+    height: 190px;
+}
+
+#custom-cursor.cursor-hypa {
+    background-image: url('images/hover-hypa.png');
+    width: 160px;
+    height: 95px;
+}
+
+#custom-cursor.cursor-gener8labs {
+    background-image: url('images/hover-gener8labs.png');
+    width: 100px;
+    height: 200px;
+}
+
+/* Tag Cursor Styles for Work Items */
+#tag-cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 999999;
+    transform: translate(10px, 10px); /* Offset from cursor */
+    opacity: 0;
+    transition: opacity 0.15s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#tag-cursor.active {
+    opacity: 1;
+}
+
+.tag-pill {
+    background-color: #E0E7D8;
+    border-radius: 30px;
+    padding: 8px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    white-space: nowrap;
+}
+
+.tag-text {
+    font-family: 'Geist Mono', monospace;
+    font-size: 12px;
+    color: black;
+    text-transform: uppercase;
+    letter-spacing: 0.24px;
+    margin: 0;
+    font-weight: 400;
+}
+
 .service-card {
     background-color: var(--green-light);
     padding: 30px 32px;
@@ -469,11 +591,17 @@ body {
     justify-content: center;
     transition: all 0.3s ease;
     cursor: default;
+    position: relative;
 }
 
-.service-card:hover {
-    transform: translateY(-5px);
+.service-card:hover,
+.service-card-link:hover .service-card {
+    transform: none !important; /* Explicitly prevent any transform on hover */
+    cursor: none !important; /* Force hide default cursor */
+    margin: 0 !important; /* Prevent margin changes */
+    padding: 30px 32px !important; /* Keep padding consistent */
 }
+
 
 .service-card-inner {
     /* Removed transform */
@@ -806,6 +934,85 @@ body {
     line-height: 36px;
     color: var(--green-dark);
     margin: 0;
+}
+
+/* Companies Logo Marquee Section */
+.companies-section {
+    margin-bottom: 130px;
+    overflow: hidden;
+    position: relative;
+}
+
+.logo-marquee-container {
+    position: relative;
+    width: 100%;
+    margin-top: 40px;
+}
+
+.logo-marquee {
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 40px;
+    mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+}
+
+.logo-marquee-track {
+    display: flex;
+    gap: 80px;
+    align-items: center;
+    width: fit-content;
+    animation: scroll-marquee 60s linear infinite;
+}
+
+.logo-marquee-bottom .logo-marquee-track {
+    animation: scroll-marquee-reverse 60s linear infinite;
+}
+
+.logo-item {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80px;
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+}
+
+.logo-item:hover {
+    opacity: 1;
+}
+
+.logo-item img {
+    max-height: 70px;
+    max-width: 200px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    filter: grayscale(100%);
+    transition: filter 0.3s ease;
+}
+
+.logo-item:hover img {
+    filter: grayscale(0%);
+}
+
+@keyframes scroll-marquee {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+@keyframes scroll-marquee-reverse {
+    0% {
+        transform: translateX(-50%);
+    }
+    100% {
+        transform: translateX(0);
+    }
 }
 
 /* Career Journey Section */

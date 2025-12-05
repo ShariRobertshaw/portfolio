@@ -287,6 +287,110 @@ function initAccordions() {
     });
 }
 
+// Initialize Custom Cursors
+function initCustomCursor() {
+    const cursor = document.getElementById('custom-cursor');
+    // Fallback creation if it doesn't exist in HTML (which it doesn't by default in our current setup)
+    let cursorEl = cursor;
+    if (!cursorEl) {
+        cursorEl = document.createElement('div');
+        cursorEl.id = 'custom-cursor';
+        document.body.appendChild(cursorEl);
+        console.log('Custom cursor element created');
+    } else {
+        console.log('Custom cursor element found');
+    }
+
+    // Move cursor with mouse
+    document.addEventListener('mousemove', (e) => {
+        if (cursorEl) {
+            cursorEl.style.left = `${e.clientX}px`;
+            cursorEl.style.top = `${e.clientY}px`;
+        }
+    });
+
+    // Handle hover states for service cards
+    const serviceCards = document.querySelectorAll('.service-card');
+    serviceCards.forEach(card => {
+        card.addEventListener('mouseenter', () => {
+            if (cursorEl) {
+                cursorEl.classList.add('active');
+                if (card.classList.contains('service-card-gener8')) {
+                    cursorEl.classList.add('cursor-gener8');
+                } else if (card.classList.contains('service-card-hypa')) {
+                    cursorEl.classList.add('cursor-hypa');
+                } else if (card.classList.contains('service-card-gener8labs')) {
+                    cursorEl.classList.add('cursor-gener8labs');
+                }
+            }
+        });
+
+        card.addEventListener('mouseleave', () => {
+            if (cursorEl) {
+                cursorEl.classList.remove('active');
+                cursorEl.classList.remove('cursor-gener8');
+                cursorEl.classList.remove('cursor-hypa');
+                cursorEl.classList.remove('cursor-gener8labs');
+            }
+        });
+    });
+}
+
+// Initialize Tag Cursor for Project Cards
+function initTagCursor() {
+    // Create Tag Cursor Element if it doesn't exist
+    let tagCursor = document.getElementById('tag-cursor');
+    if (!tagCursor) {
+        tagCursor = document.createElement('div');
+        tagCursor.id = 'tag-cursor';
+        
+        const tagPill = document.createElement('div');
+        tagPill.className = 'tag-pill';
+        
+        const tagText = document.createElement('p');
+        tagText.className = 'tag-text';
+        
+        tagPill.appendChild(tagText);
+        tagCursor.appendChild(tagPill);
+        document.body.appendChild(tagCursor);
+    }
+    
+    const tagTextEl = tagCursor.querySelector('.tag-text');
+
+    // Move tag cursor with mouse
+    document.addEventListener('mousemove', (e) => {
+        if (tagCursor.classList.contains('active')) {
+            tagCursor.style.left = `${e.clientX}px`;
+            tagCursor.style.top = `${e.clientY}px`;
+        }
+    });
+
+    // Handle hover states for work items
+    const workItems = document.querySelectorAll('.work-item-link');
+    
+    workItems.forEach(item => {
+        const href = item.getAttribute('href');
+        let projectTitle = '';
+        
+        if (href.includes('hypa')) {
+            projectTitle = 'Hypa case study';
+        } else if (href.includes('gener8labs')) {
+            projectTitle = 'Gener8 Labs case study';
+        } else if (href.includes('gener8')) {
+            projectTitle = 'Gener8 case study';
+        }
+
+        item.addEventListener('mouseenter', () => {
+            tagTextEl.textContent = projectTitle;
+            tagCursor.classList.add('active');
+        });
+
+        item.addEventListener('mouseleave', () => {
+            tagCursor.classList.remove('active');
+        });
+    });
+}
+
 // Initialize all functionality when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
     initEmailCopy();
@@ -295,4 +399,6 @@ document.addEventListener('DOMContentLoaded', () => {
     initScrollAnimations();
     initScrollFade();
     initAccordions();
+    initCustomCursor();
+    initTagCursor();
 });

@@ -26,4 +26,176 @@
     max-height: 685px !important;
 }
 
+/* Hypa Project Specifics */
+.hypa-hero-container {
+    max-width: 984px !important;
+    padding: 0 !important;
+    border-radius: 30px;
+    background: transparent;
+    margin: 0 auto;
+}
 
+.project-media-grid {
+    display: flex;
+    justify-content: center;
+    gap: 21px;
+    max-width: 984px;
+    margin: 0 auto;
+    padding-bottom: 50px; 
+}
+
+.media-item {
+    flex: 1;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.media-item img,
+.media-item video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+    display: block;
+}
+
+/* Mobile responsiveness for the grid */
+@media (max-width: 768px) {
+    .project-media-grid {
+        flex-direction: column;
+        padding: 0 20px;
+    }
+}
+
+/* Quote Styles */
+.quote-text {
+    font-family: 'Instrument Serif', serif;
+    font-size: 40px; /* Estimated size */
+    line-height: 48px;
+    color: var(--green-dark);
+    margin-bottom: 16px;
+    font-weight: 400;
+}
+
+.quote-author {
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 14px;
+    line-height: 20px;
+    color: var(--green-dark);
+    margin: 0;
+    font-weight: 400;
+}
+
+@media (max-width: 768px) {
+    .quote-text {
+        font-size: 32px;
+        line-height: 40px;
+    }
+}
+
+/* Project Navigation */
+.project-navigation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px; /* Start with arrows relatively close */
+    margin-top: 40px;
+    margin-bottom: 40px;
+    padding: 0 20px;
+    position: relative;
+    min-height: 37px;
+}
+
+.project-nav-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 2;
+}
+
+/* Removed margin-auto to allow centering with gap */
+.project-nav-prev {
+    margin-right: 0;
+}
+
+.project-nav-next {
+    margin-left: 0;
+}
+
+.project-nav-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 103px;
+    height: 37px;
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    flex-shrink: 0;
+}
+
+.nav-arrow-icon {
+    width: 103px;
+    height: 37px;
+    display: block;
+}
+
+.project-nav-text {
+    white-space: nowrap;
+    opacity: 0;
+    /* No max-width transition needed here as we are spacing arrows */
+    transition: opacity 0.3s ease 0.1s; /* Slight delay to allow space to open */
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    font-family: 'Geist Mono', monospace;
+    font-size: 12px;
+    font-weight: 400;
+    text-transform: uppercase;
+    color: var(--green-dark);
+    pointer-events: none;
+}
+
+/* --- Interaction Logic --- */
+
+/* 1. Hovering PREV arrow */
+.project-nav-prev:hover .project-nav-arrow {
+    transform: translateX(-90px);
+}
+/* Push next arrow to the right when prev is hovered */
+.project-nav-prev:hover ~ .project-nav-next .project-nav-arrow {
+    transform: translateX(90px);
+}
+/* Reveal prev text */
+.project-nav-prev:hover ~ .project-nav-text-prev {
+    opacity: 1;
+}
+
+
+/* 2. Hovering NEXT arrow */
+.project-nav-next:hover .project-nav-arrow {
+    transform: translateX(90px);
+}
+/* Push prev arrow to the left when next is hovered (using :has because prev comes before next) */
+.project-navigation:has(.project-nav-next:hover) .project-nav-prev .project-nav-arrow {
+    transform: translateX(-90px);
+}
+/* Reveal next text */
+.project-nav-next:hover ~ .project-nav-text-next {
+    opacity: 1;
+}
+
+@media (max-width: 768px) {
+    .project-navigation {
+        margin-top: 60px;
+        margin-bottom: 40px;
+        padding: 0 16px;
+    }
+    
+    .project-nav-link {
+        font-size: 14px;
+    }
+}
