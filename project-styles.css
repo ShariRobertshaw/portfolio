@@ -141,8 +141,8 @@
     justify-content: center;
     align-items: center;
     gap: 40px; /* Start with arrows relatively close */
-    margin-top: 40px;
-    margin-bottom: 40px;
+    margin-top: 60px;
+    margin-bottom: 60px;
     padding: 0 20px;
     position: relative;
     min-height: 37px;
