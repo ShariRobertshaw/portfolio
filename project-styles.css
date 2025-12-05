@@ -76,7 +76,6 @@
     border-radius: 0 !important;
     overflow: visible;
     min-height: auto !important;
-    display: block;
 }
 
 .media-item img,
