@@ -93,7 +93,7 @@ body {
     display: none;
     flex-direction: column;
     justify-content: center;
-    gap: auto;
+    gap: 10px;
     width: 32px;
     height: 16px;
     background: transparent;
