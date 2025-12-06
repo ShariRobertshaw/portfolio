@@ -1303,32 +1303,40 @@ body {
 
 @media (max-width: 768px) {
     .about-hero .hero-title {
-        font-size: 36px;
+        font-size: 40px;
         line-height: 44px;
     }
 
+    .sticky-header {
+        padding-bottom: 0;
+    }
+
     .services-grid-about {
-        gap: 40px;
+        gap: 60px;
     }
 
     .service-block {
         grid-template-columns: 1fr;
-        gap: 24px;
+        gap: 0;
+        row-gap: 32px;
+        min-height: auto;
     }
 
     .service-block-title {
         font-size: 36px;
         line-height: 44px;
+        margin-bottom: 0;
     }
 
     .service-block-text {
         font-size: 18px;
         line-height: 28px;
+        margin-top: 0;
     }
 
     .career-bio-text {
-        font-size: 18px;
-        line-height: 28px;
+        font-size: 32px;
+        line-height: 40px;
     }
 
     .accordion-header {
@@ -1365,27 +1373,41 @@ body {
 
 @media (max-width: 480px) {
     .about-hero .hero-title {
-        font-size: 28px;
+        font-size: 40px;
         line-height: 36px;
     }
 
+    .sticky-header {
+        padding-bottom: 0;
+    }
+
+    .services-grid-about {
+        gap: 60px;
+    }
+
     .service-block {
-        margin-bottom: 60px;
+        gap: 0;
+        row-gap: 32px;
+        margin-bottom: 0;
+        min-height: auto;
     }
 
     .service-block-title {
         font-size: 28px;
         line-height: 36px;
+        margin-bottom: 0;
     }
 
     .service-block-text {
         font-size: 16px;
         line-height: 24px;
+        margin-top: 0;
+        margin-bottom: 0;
     }
 
     .career-bio-text {
-        font-size: 16px;
-        line-height: 24px;
+        font-size: 32px;
+        line-height: 40px;
     }
 
     .accordion-header {
@@ -1421,7 +1443,7 @@ body {
 /* Hero Image Section */
 .project-hero-image-section {
     margin-bottom: 0;
-    padding: 67px 0;
+    padding: 67px 0 80px 0;
 }
 
 .project-hero-image-container {
@@ -1648,8 +1670,8 @@ body {
     }
     
     .project-hero-image-section {
-        margin-bottom: 60px;
-        padding: 40px 0;
+        margin-bottom: 0;
+        padding: 40px 0 80px 0;
     }
     
     .project-hero-image-container {
@@ -1710,7 +1732,7 @@ body {
     }
     
     .project-hero-image-section {
-        padding: 32px 0;
+        padding: 32px 0 80px 0;
     }
     
     .project-description-container {
