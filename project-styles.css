@@ -54,7 +54,9 @@
 /* Hypa Project Specifics */
 .hypa-hero-video-container {
     width: calc(100% - 64px);
-    margin: 0 32px;
+    max-width: 972px;
+    margin: 0 auto;
+    padding: 0 32px;
     border-radius: 30px;
     overflow: hidden;
     background: transparent;
@@ -62,6 +64,7 @@
 
 .hypa-hero-video {
     width: 100%;
+    max-width: 100%;
     height: auto;
     display: block;
     border-radius: 30px;
@@ -70,19 +73,19 @@
 /* Phone Image Container */
 .hypa-phone-container {
     width: calc(100% - 64px);
-    margin: 0 32px;
+    max-width: 1408px;
+    margin: 0 auto;
+    padding: 0 32px;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 30px;
-    overflow: visible;
-    min-width: 677px;
+    overflow: hidden;
 }
 
 .hypa-phone-image {
-    width: auto;
-    min-width: 677px;
-    max-width: 800px;
+    width: 100%;
+    max-width: 677px;
     height: auto;
     display: block;
     border-radius: 30px;
@@ -182,20 +185,26 @@
 @media (max-width: 768px) {
     .hypa-hero-video-container {
         width: calc(100% - 64px);
-        margin: 0 32px;
+        max-width: 100%;
+        margin: 0 auto;
+        padding: 0 32px;
     }
     
     .hypa-phone-container {
         width: calc(100% - 64px);
-        margin: 0 32px;
-        min-width: auto;
+        max-width: 100%;
+        margin: 0 auto;
+        padding: 0 32px;
         overflow: hidden;
     }
     
     .hypa-phone-image {
-        min-width: auto;
         max-width: 100%;
         width: 100%;
+    }
+    
+    .bento-item {
+        max-height: 400px;
     }
     
     .hypa-testimonial-section {
