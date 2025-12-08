@@ -54,7 +54,7 @@
 /* Hypa Project Specifics */
 .hypa-hero-video-container {
     width: calc(100% - 64px);
-    max-width: 972px;
+    max-width: 1408px;
     margin: 0 auto;
     padding: 0 32px;
     border-radius: 30px;
