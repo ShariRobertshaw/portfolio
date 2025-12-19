@@ -17,6 +17,13 @@ html {
     scroll-behavior: smooth;
 }
 
+/* Disable smooth scroll on mobile to prevent sticky positioning jitter */
+@media (max-width: 768px) {
+    html {
+        scroll-behavior: auto;
+    }
+}
+
 body {
     font-family: 'Instrument Sans', sans-serif;
     background-color: var(--bg-color);
@@ -414,11 +421,11 @@ body {
 .work-image {
     width: auto;
     height: auto;
-    max-width: none;
+    max-width: 600px;
     max-height: 600px;
     border-radius: 40px;
     display: block;
-    object-fit: contain;
+    object-fit: cover;
     transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
@@ -917,7 +924,7 @@ body {
     }
 
     .work-gallery {
-        gap: 20px;
+        gap: 24px; /* Consistent gap between images */
     }
 
     .work-item {
@@ -926,14 +933,31 @@ body {
     }
     
     .work-image {
-        max-height: 400px;
-        width: 100%;
+        max-width: 360px;
+        max-height: 360px;
+        width: auto;
         height: auto;
+        object-fit: cover; /* Crop to fit instead of stretching */
+        border-radius: 40px; /* Keep border-radius on image instead of container */
     }
     
     .project-card {
-        width: 100%;
+        width: auto;
         height: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: transparent; /* Remove background */
+        padding: 0; /* Remove any padding */
+    }
+    
+    .work-card {
+        width: auto;
+        height: auto;
+        background: transparent !important; /* Remove background container */
+        border-radius: 0; /* Remove rounded container */
+        padding: 0; /* Remove any padding */
+        overflow: visible; /* Allow image border-radius to show */
     }
     
     .hypa-card,
@@ -1013,17 +1037,66 @@ body {
 /* What I Can Do For You Section */
 .sticky-section {
     position: relative;
+    /* Minimal properties to avoid interfering with sticky */
 }
 
 .sticky-header {
     position: sticky;
+    position: -webkit-sticky; /* Safari support */
     top: 0;
     background-color: var(--bg-color);
     z-index: 10;
     padding-top: 40px;
     padding-bottom: 40px;
     margin-bottom: 0;
+    /* Prevent sub-pixel rendering issues */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    /* Ensure solid background with pseudo-element for full coverage */
 }
+
+/* Mobile-specific fix: Use fixed positioning fallback via JS */
+@media (max-width: 768px) {
+    /* Mobile sticky fix: prevent dimension recalculation */
+    .sticky-header {
+        position: -webkit-sticky;
+        position: sticky;
+        top: 0;
+        /* Simple solid background */
+        background-color: var(--bg-color);
+        /* Fix height to prevent recalculation during scroll */
+        box-sizing: border-box;
+        /* Ensure padding doesn't cause width changes */
+        width: 100%;
+        max-width: 100%;
+        /* Prevent any margin collapse */
+        margin-left: 0;
+        margin-right: 0;
+    }
+    
+    /* Remove contain from section */
+    .sticky-section {
+        contain: none;
+    }
+    
+    /* Ensure no pseudo-elements on mobile */
+    .sticky-header::before {
+        display: none !important;
+    }
+    
+    /* Prevent parent container from causing issues */
+    .homepage {
+        /* Ensure no overflow that could affect sticky */
+        overflow-x: hidden;
+    }
+}
+
+.sticky-header-spacer {
+    height: 0;
+    transition: height 0.1s ease-out;
+}
+
+/* Removed ::before pseudo-element - it can cause layout recalculations on mobile */
 
 .services-grid-about {
     display: flex;
@@ -1309,7 +1382,19 @@ body {
 
     .sticky-header {
         padding-bottom: 0;
+        /* Ensure proper background coverage on mobile */
+        background-color: var(--bg-color);
+        /* NO transform - transforms break sticky on mobile Safari */
+        left: 0;
+        right: 0;
     }
+    
+    .sticky-header::before {
+        /* Extend background further on mobile for better coverage */
+        left: -100vw;
+        right: -100vw;
+    }
+    
 
     .services-grid-about {
         gap: 60px;
@@ -1320,6 +1405,19 @@ body {
         gap: 0;
         row-gap: 32px;
         min-height: auto;
+        /* Disable transforms on mobile to prevent sticky header glitching */
+        transform: none !important;
+        transition: opacity 0.8s ease;
+    }
+    
+    .service-block.fade-in {
+        opacity: 1;
+        transform: none !important;
+    }
+    
+    .service-block.fade-out {
+        opacity: 0;
+        transform: none !important;
     }
 
     .service-block-title {
@@ -1379,7 +1477,19 @@ body {
 
     .sticky-header {
         padding-bottom: 0;
+        /* Ensure proper background coverage on mobile */
+        background-color: var(--bg-color);
+        /* NO transform - transforms break sticky on mobile Safari */
+        left: 0;
+        right: 0;
     }
+    
+    .sticky-header::before {
+        /* Extend background further on mobile for better coverage */
+        left: -100vw;
+        right: -100vw;
+    }
+    
 
     .services-grid-about {
         gap: 60px;
@@ -1390,6 +1500,19 @@ body {
         row-gap: 32px;
         margin-bottom: 0;
         min-height: auto;
+        /* Disable transforms on mobile to prevent sticky header glitching */
+        transform: none !important;
+        transition: opacity 0.8s ease;
+    }
+    
+    .service-block.fade-in {
+        opacity: 1;
+        transform: none !important;
+    }
+    
+    .service-block.fade-out {
+        opacity: 0;
+        transform: none !important;
     }
 
     .service-block-title {
