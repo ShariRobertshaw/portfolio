@@ -209,36 +209,8 @@ function initScrollFade() {
     
     if (scrollFadeSections.length === 0) return;
     
-    // #region agent log
-    const stickyHeader = document.querySelector('.sticky-header');
-    let lastStickyRect = null;
-    let scrollEventCount = 0;
-    // #endregion
-    
-    // Disable scroll animations entirely on mobile to prevent sticky header glitching
-    const isMobile = window.innerWidth <= 768;
-    
-    if (isMobile) {
-        // On mobile: just show all service blocks immediately, no fade animations
-        scrollFadeSections.forEach(section => {
-            section.classList.add('fade-in');
-            section.classList.remove('fade-out');
-        });
-        return; // Exit early, no IntersectionObserver on mobile
-    }
-    
-    // Desktop: use IntersectionObserver with normal thresholds
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
-            // #region agent log
-            if (stickyHeader) {
-                const rect = stickyHeader.getBoundingClientRect();
-                const isSticky = window.getComputedStyle(stickyHeader).position === 'sticky';
-                fetch('http://127.0.0.1:7242/ingest/2a91712a-16a7-4759-8ec3-45f377bc6f8e',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'scripts.js:214',message:'IntersectionObserver callback',data:{isIntersecting:entry.isIntersecting,targetClass:entry.target.className,stickyTop:rect.top,stickyLeft:rect.left,stickyHeight:rect.height,isStickyPosition:isSticky},timestamp:Date.now(),sessionId:'debug-session',runId:'post-fix',hypothesisId:'C'})}).catch(()=>{});
-                lastStickyRect = rect;
-            }
-            // #endregion
-            
             if (entry.isIntersecting) {
                 entry.target.classList.add('fade-in');
                 entry.target.classList.remove('fade-out');
@@ -256,38 +228,6 @@ function initScrollFade() {
     scrollFadeSections.forEach(section => {
         observer.observe(section);
     });
-    
-    // #region agent log
-    // Track scroll events and sticky header position (desktop only)
-    if (stickyHeader) {
-        let ticking = false;
-        window.addEventListener('scroll', () => {
-            scrollEventCount++;
-            if (!ticking) {
-                requestAnimationFrame(() => {
-                    const rect = stickyHeader.getBoundingClientRect();
-                    const computedStyle = window.getComputedStyle(stickyHeader);
-                    const isSticky = computedStyle.position === 'sticky';
-                    const transform = computedStyle.transform;
-                    const opacity = computedStyle.opacity;
-                    
-                    fetch('http://127.0.0.1:7242/ingest/2a91712a-16a7-4759-8ec3-45f377bc6f8e',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'scripts.js:250',message:'Scroll event sticky header state',data:{scrollY:window.scrollY,stickyTop:rect.top,stickyLeft:rect.left,stickyWidth:rect.width,stickyHeight:rect.height,isSticky:isSticky,transform:transform,opacity:opacity,hasTransform:transform !== 'none'},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'A'})}).catch(()=>{});
-                    
-                    if (lastStickyRect) {
-                        const topDelta = Math.abs(rect.top - lastStickyRect.top);
-                        const leftDelta = Math.abs(rect.left - lastStickyRect.left);
-                        if (topDelta > 0.1 || leftDelta > 0.1) {
-                            fetch('http://127.0.0.1:7242/ingest/2a91712a-16a7-4759-8ec3-45f377bc6f8e',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'scripts.js:260',message:'Sticky header position shift detected',data:{topDelta:topDelta,leftDelta:leftDelta,oldTop:lastStickyRect.top,newTop:rect.top,oldLeft:lastStickyRect.left,newLeft:rect.left},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'D'})}).catch(()=>{});
-                        }
-                    }
-                    lastStickyRect = rect;
-                    ticking = false;
-                });
-                ticking = true;
-            }
-        }, { passive: true });
-    }
-    // #endregion
 }
 
 // Initialize accordion functionality
@@ -451,34 +391,8 @@ function initTagCursor() {
     });
 }
 
-// Mobile sticky header fix - ensure stable sticky behavior
-function initMobileStickyFix() {
-    const stickyHeader = document.querySelector('.sticky-header');
-    
-    if (!stickyHeader) return;
-    
-    // On mobile, ensure no inline styles interfere
-    if (window.innerWidth <= 768) {
-        // Remove any fixed classes that might interfere
-        stickyHeader.classList.remove('sticky-fixed');
-        stickyHeader.style.position = '';
-        stickyHeader.style.top = '';
-        stickyHeader.style.width = '';
-        stickyHeader.style.left = '';
-    }
-}
-
 // Initialize all functionality when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
-    // #region agent log
-    const stickyHeader = document.querySelector('.sticky-header');
-    if (stickyHeader) {
-        const rect = stickyHeader.getBoundingClientRect();
-        const computedStyle = window.getComputedStyle(stickyHeader);
-        fetch('http://127.0.0.1:7242/ingest/2a91712a-16a7-4759-8ec3-45f377bc6f8e',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'scripts.js:400',message:'DOMContentLoaded sticky header initial state',data:{position:computedStyle.position,top:computedStyle.top,zIndex:computedStyle.zIndex,backgroundColor:computedStyle.backgroundColor,willChange:computedStyle.willChange,transform:computedStyle.transform,initialTop:rect.top,initialLeft:rect.left,initialWidth:rect.width,initialHeight:rect.height,viewportWidth:window.innerWidth,viewportHeight:window.innerHeight},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'A'})}).catch(()=>{});
-    }
-    // #endregion
-    
     initEmailCopy();
     initWorkScroll();
     initFadeInAnimations();
@@ -487,5 +401,4 @@ document.addEventListener('DOMContentLoaded', () => {
     initAccordions();
     initCustomCursor();
     initTagCursor();
-    initMobileStickyFix();
 });
