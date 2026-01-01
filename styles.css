@@ -92,12 +92,17 @@ body {
 .hamburger-menu {
     display: none;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     gap: 4px;
     background: none;
     border: none;
     cursor: pointer;
     padding: 8px;
     z-index: 1001;
+    position: relative;
+    width: 24px;
+    height: 24px;
 }
 
 .hamburger-line {
@@ -105,14 +110,26 @@ body {
     height: 2px;
     background-color: var(--green-dark);
     transition: all 0.3s ease;
+    position: absolute;
+    left: 0;
+}
+
+.hamburger-line:nth-child(1) {
+    top: 6px;
+}
+
+.hamburger-line:nth-child(2) {
+    top: 16px;
 }
 
 .hamburger-menu.active .hamburger-line:nth-child(1) {
-    transform: rotate(45deg) translate(6px, 6px);
+    top: 11px;
+    transform: rotate(45deg);
 }
 
 .hamburger-menu.active .hamburger-line:nth-child(2) {
-    transform: rotate(-45deg) translate(6px, -6px);
+    top: 11px;
+    transform: rotate(-45deg);
 }
 
 .mobile-menu-overlay {
@@ -850,9 +867,18 @@ body {
         gap: 60px;
     }
 
+    .hero-section {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 60vh;
+        padding-top: 60px;
+        padding-bottom: 40px;
+    }
+
     .hero-title {
-        font-size: 36px;
-        line-height: 44px;
+        font-size: 48px;
+        line-height: 56px;
     }
 
     .work-gallery {
@@ -913,9 +939,14 @@ body {
 }
 
 @media (max-width: 480px) {
+    .hero-section {
+        min-height: 50vh;
+        padding-top: 40px;
+    }
+
     .hero-title {
-        font-size: 28px;
-        line-height: 36px;
+        font-size: 40px;
+        line-height: 48px;
     }
 
     .btn {
@@ -1262,9 +1293,17 @@ body {
 }
 
 @media (max-width: 768px) {
+    .about-hero {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 60vh;
+        margin-bottom: 80px;
+    }
+
     .about-hero .hero-title {
-        font-size: 36px;
-        line-height: 44px;
+        font-size: 48px;
+        line-height: 56px;
     }
 
     .services-grid-about {
@@ -1297,8 +1336,8 @@ body {
     }
 
     .career-bio-text {
-        font-size: 18px;
-        line-height: 28px;
+        font-size: 24px;
+        line-height: 32px;
     }
 
     .accordion-header {
@@ -1334,9 +1373,14 @@ body {
 }
 
 @media (max-width: 480px) {
+    .about-hero {
+        min-height: 50vh;
+        margin-bottom: 60px;
+    }
+
     .about-hero .hero-title {
-        font-size: 28px;
-        line-height: 36px;
+        font-size: 40px;
+        line-height: 48px;
     }
 
     .service-block {
@@ -1364,8 +1408,8 @@ body {
     }
 
     .career-bio-text {
-        font-size: 16px;
-        line-height: 24px;
+        font-size: 20px;
+        line-height: 28px;
     }
 
     .accordion-header {
