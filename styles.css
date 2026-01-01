@@ -1433,7 +1433,7 @@ body {
 
 .project-hero {
     text-align: center;
-    margin-bottom: 32px;
+    margin-bottom: 88px;
 }
 
 .project-hero .hero-title {
@@ -1445,7 +1445,7 @@ body {
 /* Hero Image Section */
 .project-hero-image-section {
     margin-bottom: 88px;
-    padding: 67px 0;
+    padding: 0;
 }
 
 .project-hero-image-container {
@@ -1667,6 +1667,10 @@ body {
 }
 
 @media (max-width: 768px) {
+    .project-hero {
+        margin-bottom: 60px;
+    }
+
     .project-hero .hero-title {
         font-size: 50px;
         line-height: 60px;
@@ -1674,7 +1678,7 @@ body {
     
     .project-hero-image-section {
         margin-bottom: 60px;
-        padding: 40px 0;
+        padding: 0;
     }
     
     .project-hero-image-container {
@@ -1683,6 +1687,7 @@ body {
     
     .project-description-section {
         margin-bottom: 60px;
+        padding: 0 16px;
     }
     
     .project-description-text {
@@ -1705,6 +1710,7 @@ body {
     
     .project-case-study {
         margin-bottom: 60px;
+        padding: 0 16px;
     }
     
     .case-study-header {
@@ -1729,16 +1735,28 @@ body {
 }
 
 @media (max-width: 480px) {
+    .project-hero {
+        margin-bottom: 60px;
+    }
+
     .project-hero .hero-title {
         font-size: 36px;
         line-height: 44px;
     }
     
     .project-hero-image-section {
-        padding: 32px 0;
+        padding: 0;
     }
     
+    .project-description-section {
+        padding: 0 16px;
+    }
+
     .project-description-container {
+        padding: 0;
+    }
+
+    .project-case-study {
         padding: 0 16px;
     }
     
