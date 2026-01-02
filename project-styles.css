@@ -268,7 +268,7 @@
         grid-column: 1;
         grid-row: auto;
         min-height: auto;
-        border-radius: 0;
+        border-radius: 30px;
     }
     
     .bento-item.bento-large .bento-image {

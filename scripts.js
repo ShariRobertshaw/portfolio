@@ -148,10 +148,58 @@ function initWorkScroll() {
     
     if (scrollArrow && workGallery) {
         scrollArrow.addEventListener('click', () => {
-            workGallery.scrollBy({
-                left: 800,
-                behavior: 'smooth'
+            // Get all work items
+            const workItems = workGallery.querySelectorAll('.work-item');
+            
+            if (workItems.length === 0) return;
+            
+            // Find the currently visible item
+            const galleryRect = workGallery.getBoundingClientRect();
+            let currentIndex = -1;
+            
+            workItems.forEach((item, index) => {
+                const itemRect = item.getBoundingClientRect();
+                // Check if item is more than 50% visible
+                if (itemRect.left < galleryRect.right && itemRect.right > galleryRect.left) {
+                    const visibleWidth = Math.min(itemRect.right, galleryRect.right) - Math.max(itemRect.left, galleryRect.left);
+                    if (visibleWidth > itemRect.width * 0.5) {
+                        currentIndex = index;
+                    }
+                }
             });
+            
+            // If no item found, use the first one
+            if (currentIndex === -1) {
+                currentIndex = 0;
+            }
+            
+            // Scroll to the next item
+            const nextIndex = currentIndex + 1;
+            if (nextIndex < workItems.length) {
+                const nextItem = workItems[nextIndex];
+                const itemRect = nextItem.getBoundingClientRect();
+                const galleryRect = workGallery.getBoundingClientRect();
+                
+                // Calculate scroll position to center the next item
+                const scrollLeft = workGallery.scrollLeft;
+                const itemLeft = nextItem.offsetLeft;
+                const itemWidth = nextItem.offsetWidth;
+                const galleryWidth = galleryRect.width;
+                
+                // Scroll to show the next item, accounting for gap
+                const targetScroll = itemLeft - (galleryWidth / 2) + (itemWidth / 2);
+                
+                workGallery.scrollTo({
+                    left: targetScroll,
+                    behavior: 'smooth'
+                });
+            } else {
+                // If at the last item, scroll to the end
+                workGallery.scrollTo({
+                    left: workGallery.scrollWidth,
+                    behavior: 'smooth'
+                });
+            }
         });
     }
 }
