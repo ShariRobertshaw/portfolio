@@ -5,6 +5,8 @@
     display: block; /* Reset flex if needed, but keeping flex is fine usually if single child */
     border-radius: 30px; /* Ensure container has rounded corners */
     background-color: transparent; /* Remove background color if padding is gone */
+    max-width: 900px;
+    margin: 0 auto;
 }
 
 .video-rounded {
