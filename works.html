@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    
+    <!-- Social Preview (Open Graph) -->
+    <meta property="og:title" content="Works - Shari Robertshaw">
+    <meta property="og:description" content="Product design grounded in curiosity, collaboration, and meaningful craft.">
+    <meta property="og:image" content="https://www.sharirobertshaw.com/images/social-preview.png">
+    <meta property="og:url" content="https://www.sharirobertshaw.com/works.html">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Works - Shari Robertshaw">
+    <meta name="twitter:description" content="Product design grounded in curiosity, collaboration, and meaningful craft.">
+    <meta name="twitter:image" content="https://www.sharirobertshaw.com/images/social-preview.png">
+    
+    <title>Works - Shari Robertshaw</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:wght@400&family=Instrument+Sans:wght@400;500;600&family=Geist+Mono:wght@400&display=swap" rel="stylesheet">
+    <style>
+        /* Works Page Specific Styles */
+        .work-item-link {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .case-study-info {
+            padding-left: 32px;
+            margin-top: 40px;
+            opacity: 0;
+            transition: opacity 0.4s ease 0.1s;
+        }
+
+        .work-item-link:hover .case-study-info {
+            opacity: 1;
+        }
+
+        .case-study-description {
+            font-family: 'Instrument Sans', sans-serif;
+            font-size: 18px;
+            line-height: 1.5;
+            color: var(--green-dark);
+            max-width: 481px;
+            margin: 0;
+        }
+
+        @media (max-width: 768px) {
+            .case-study-info {
+                padding-left: 16px;
+                margin-top: 24px;
+                opacity: 1;
+            }
+            .case-study-description {
+                font-size: 16px;
+            }
+        }
+
+        .past-work-title {
+            font-family: 'Instrument Serif', serif;
+            font-size: 80px;
+            line-height: 82px;
+            color: var(--green-dark);
+            font-weight: 400;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        
+        @media (max-width: 1200px) {
+            .past-work-title {
+                font-size: 60px;
+                line-height: 70px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .past-work-title {
+                font-size: 48px;
+                line-height: 56px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .past-work-title {
+                font-size: 40px;
+                line-height: 48px;
+            }
+        }
+
+        .past-work-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            align-items: center;
+            margin-top: 130px;
+        }
+
+        .past-work-item {
+            width: 100%;
+            max-width: 1200px;
+            margin-bottom: 0;
+            opacity: 0;
+            filter: blur(8px);
+            transition: opacity 0.4s ease, filter 0.4s ease;
+            cursor: none;
+        }
+        
+        .past-work-item:hover {
+            cursor: none;
+        }
+
+        .past-work-item.visible {
+            opacity: 1;
+            filter: blur(0);
+        }
+
+        .past-work-image {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .work-gallery .work-card {
+            cursor: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="nav-container"></div>
+    
+    <main class="homepage">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <h1 class="hero-title fade-in-up">A selection of case studies and past projects</h1>
+        </section>
+
+        <!-- Work Section (consistent with homepage) -->
+        <section class="work-section">
+            <div class="work-gallery">
+                <!-- Case Study 1: Hypa -->
+                <a href="project-hypa.html" class="work-item-link" data-project-title="Hypa Apps">
+                    <div class="work-item">
+                        <div class="work-card project-card work-card-hypa">
+                            <video autoplay loop muted playsinline class="work-image work-video">
+                                <source src="images/hypaapps_v2.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                    <div class="case-study-info">
+                        <p class="case-study-description">A sleek brand identity and website design created to showcase Hypa's BigCommerce tools, using geometric shapes and space-inspired visuals to communicate innovation, clarity, and potential for growth.</p>
+                    </div>
+                </a>
+
+                <!-- Case Study 2: Gener8 Labs -->
+                <a href="project-gener8labs.html" class="work-item-link" data-project-title="Gener8 Labs">
+                    <div class="work-item">
+                        <div class="work-card project-card work-card-gener8labs">
+                            <img src="images/gener8labs-home.png" alt="Gener8 Labs" class="work-image">
+                        </div>
+                    </div>
+                    <div class="case-study-info">
+                        <p class="case-study-description">A polished Webflow website design for a B2B data company, crafted to clearly communicate their value and build trust with clients through intuitive UX, strong visuals, and a cohesive visual identity.</p>
+                    </div>
+                </a>
+
+                <!-- Case Study 3: Gener8 Tiers -->
+                <a href="project-gener8.html" class="work-item-link" data-project-title="Gener8 Tiers">
+                    <div class="work-item">
+                        <div class="work-card project-card work-card-gener8">
+                            <img src="images/gener8_home.png" alt="Gener8 Tiers" class="work-image">
+                        </div>
+                    </div>
+                    <div class="case-study-info">
+                        <p class="case-study-description">Gamifying the data-sharing experience through a tiered rewards system that encourages deeper engagement and connectivity.</p>
+                    </div>
+                </a>
+
+                <button class="scroll-arrow" aria-label="Scroll right">
+                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </button>
+            </div>
+        </section>
+
+        <!-- Past Work Section -->
+        <section class="past-work-section">
+            <h2 class="past-work-title fade-in-up">A scroll through past work</h2>
+            
+            <div class="past-work-grid">
+                <div class="past-work-item">
+                    <img src="images/work/CSP.png" alt="CSP" class="past-work-image">
+                </div>
+                <div class="past-work-item">
+                    <img src="images/work/Tata.png" alt="Tata" class="past-work-image">
+                </div>
+                <div class="past-work-item">
+                    <img src="images/work/Tata-1.png" alt="Tata" class="past-work-image">
+                </div>
+                <div class="past-work-item">
+                    <img src="images/work/Greensil.png" alt="Greensil" class="past-work-image">
+                </div>
+                <div class="past-work-item">
+                    <img src="images/work/Smythson.png" alt="Smythson" class="past-work-image">
+                </div>
+                <div class="past-work-item">
+                    <img src="images/work/My Whiskey.png" alt="My Whiskey" class="past-work-image">
+                </div>
+                <div class="past-work-item">
+                    <img src="images/work/JNJ.png" alt="JNJ" class="past-work-image">
+                </div>
+                <div class="past-work-item">
+                    <img src="images/work/Spoka.png" alt="Spoka" class="past-work-image">
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact-section" id="contact">
+            <div class="section-header">
+                <h2 class="section-label">Get in touch</h2>
+            </div>
+            <div class="contact-content">
+                <p class="contact-text">
+                    Email me at <a href="#" class="email-link" id="email-link">hello@sharirobertshaw.com</a>
+                </p>
+                <p class="contact-text">
+                    Or find me on <a href="https://www.linkedin.com/in/sharirobertshaw/" target="_blank" rel="noopener noreferrer" class="linkedin-link">LinkedIn</a>
+                </p>
+            </div>
+            <div class="copy-message" id="copy-message">Email copied to clipboard!</div>
+        </section>
+    </main>
+
+    <div id="footer-container"></div>
+
+    <script src="components.js"></script>
+    <script src="scripts.js"></script>
+    <script>
+        // Initialize Tag Cursor for Case Study Cards
+        function initCaseStudyCursor() {
+            let tagCursor = document.getElementById('tag-cursor');
+            if (!tagCursor) {
+                tagCursor = document.createElement('div');
+                tagCursor.id = 'tag-cursor';
+                const tagPill = document.createElement('div');
+                tagPill.className = 'tag-pill';
+                const tagText = document.createElement('p');
+                tagText.className = 'tag-text';
+                tagPill.appendChild(tagText);
+                tagCursor.appendChild(tagPill);
+                document.body.appendChild(tagCursor);
+            }
+            
+            const tagTextEl = tagCursor.querySelector('.tag-text');
+
+            document.addEventListener('mousemove', (e) => {
+                if (tagCursor.classList.contains('active')) {
+                    tagCursor.style.left = `${e.clientX + 30}px`;
+                    tagCursor.style.top = `${e.clientY - 50}px`;
+                    tagCursor.style.transform = 'none';
+                }
+            });
+
+            const workItems = document.querySelectorAll('.work-section .work-item-link');
+            
+            workItems.forEach(item => {
+                const projectTitle = item.getAttribute('data-project-title');
+                
+                item.addEventListener('mouseenter', () => {
+                    if (tagTextEl && projectTitle) {
+                        tagTextEl.textContent = projectTitle;
+                        tagCursor.classList.add('active');
+                    }
+                });
+
+                item.addEventListener('mouseleave', () => {
+                    tagCursor.classList.remove('active');
+                });
+            });
+        }
+
+        // Initialize Tag Cursor for Past Work Items
+        function initPastWorkCursor() {
+            let tagCursor = document.getElementById('tag-cursor');
+            const tagTextEl = tagCursor ? tagCursor.querySelector('.tag-text') : null;
+            const pastWorkItems = document.querySelectorAll('.past-work-item');
+            
+            pastWorkItems.forEach(item => {
+                const img = item.querySelector('.past-work-image');
+                const projectTitle = img ? img.getAttribute('alt') : '';
+                
+                item.addEventListener('mouseenter', () => {
+                    if (tagTextEl && projectTitle) {
+                        tagTextEl.textContent = projectTitle;
+                        tagCursor.classList.add('active');
+                    }
+                });
+
+                item.addEventListener('mouseleave', () => {
+                    if (tagCursor) tagCursor.classList.remove('active');
+                });
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            initCaseStudyCursor();
+            initPastWorkCursor();
+        });
+
+        // Past Work Visibility Observer
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.past-work-item').forEach(item => {
+            observer.observe(item);
+        });
+    </script>
+</body>
+</html>
