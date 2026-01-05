@@ -17,6 +17,11 @@
     object-fit: cover; /* Ensure it fills the space */
 }
 
+/* Gener8 Project Specifics */
+.gener8-work-container {
+    max-width: 900px !important;
+}
+
 /* Wireframe container - matches Figma design width of 1376px */
 .wireframe-container {
     max-width: 1376px !important;
