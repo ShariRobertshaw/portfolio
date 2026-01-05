@@ -14,14 +14,14 @@ function loadNav() {
                     <span class="hamburger-line"></span>
                 </button>
                 <ul class="nav-links">
-                    <li><a href="index.html" class="nav-link"><span class="nav-link-text">Work</span></a></li>
+                    <li><a href="works.html" class="nav-link"><span class="nav-link-text">Work</span></a></li>
                     <li><a href="about.html" class="nav-link"><span class="nav-link-text">About</span></a></li>
                     <li><a href="about.html" class="nav-link"><span class="nav-link-text">Services</span></a></li>
                     <li><a href="index.html#contact" class="nav-link"><span class="nav-link-text">Contact</span></a></li>
                 </ul>
                 <div class="mobile-menu-overlay">
                     <ul class="mobile-menu-links">
-                        <li><a href="index.html" class="mobile-menu-link">Work</a></li>
+                        <li><a href="works.html" class="mobile-menu-link">Work</a></li>
                         <li><a href="about.html" class="mobile-menu-link">About</a></li>
                         <li><a href="about.html" class="mobile-menu-link">Services</a></li>
                         <li><a href="index.html#contact" class="mobile-menu-link">Contact</a></li>
