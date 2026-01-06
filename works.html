@@ -32,18 +32,40 @@
         }
 
         /* Case Studies Section */
-        .case-studies-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 88px;
+        .case-studies-section {
             margin-top: 88px;
             margin-bottom: 130px;
         }
 
-        .case-study-item {
+        .section-label-works {
+            font-family: 'Geist Mono', monospace;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.24px;
+            color: var(--green-dark);
+            margin-bottom: 88px;
+        }
+
+        .case-studies-grid {
             display: flex;
             flex-direction: column;
-            gap: 32px;
+            gap: 130px;
+        }
+
+        .case-study-item {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        /* Alternate layout: content on left, image on right */
+        .case-study-item.reverse {
+            direction: rtl;
+        }
+
+        .case-study-item.reverse > * {
+            direction: ltr;
         }
 
         .case-study-link {
@@ -58,7 +80,8 @@
             overflow: hidden;
             transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             width: 100%;
-            aspect-ratio: 16/9;
+            aspect-ratio: 1/1;
+            background-color: var(--beige);
         }
 
         .case-study-card:hover {
@@ -76,7 +99,7 @@
         .case-study-info {
             display: flex;
             flex-direction: column;
-            gap: 16px;
+            gap: 24px;
         }
 
         .case-study-title {
@@ -93,7 +116,28 @@
             line-height: 1.6;
             color: var(--green-dark);
             margin: 0;
-            max-width: 800px;
+        }
+
+        .read-case-study-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--green-light);
+            color: var(--green-dark);
+            padding: 8px 16px;
+            border-radius: 30px;
+            font-family: 'Geist Mono', monospace;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.24px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            width: fit-content;
+        }
+
+        .read-case-study-btn:hover {
+            background-color: var(--green-dark);
+            color: var(--green-light);
         }
 
         /* Past Work Section */
@@ -131,6 +175,14 @@
 
         /* Responsive Styles */
         @media (max-width: 1200px) {
+            .case-study-item {
+                gap: 60px;
+            }
+
+            .case-studies-grid {
+                gap: 100px;
+            }
+
             .case-study-title {
                 font-size: 40px;
             }
@@ -139,13 +191,24 @@
                 font-size: 60px;
                 line-height: 70px;
             }
+        }
 
-            .case-studies-grid {
-                gap: 72px;
+        @media (max-width: 900px) {
+            .case-study-item {
+                grid-template-columns: 1fr;
+                gap: 40px;
             }
 
-            .past-work-grid {
-                gap: 72px;
+            .case-study-item.reverse {
+                direction: ltr;
+            }
+
+            .case-studies-grid {
+                gap: 80px;
+            }
+
+            .section-label-works {
+                margin-bottom: 60px;
             }
         }
 
@@ -162,16 +225,23 @@
                 font-size: 16px;
             }
 
+            .case-study-info {
+                gap: 20px;
+            }
+
             .past-work-title {
                 font-size: 48px;
                 line-height: 56px;
                 margin-bottom: 88px;
             }
 
-            .case-studies-grid {
-                gap: 56px;
+            .case-studies-section {
                 margin-top: 56px;
                 margin-bottom: 88px;
+            }
+
+            .case-studies-grid {
+                gap: 60px;
             }
 
             .past-work-grid {
@@ -210,9 +280,11 @@
         </section>
 
         <!-- Case Studies Section -->
-        <section class="works-container">
+        <section class="works-container case-studies-section">
+            <div class="section-label-works fade-in-up">CASE STUDIES</div>
+            
             <div class="case-studies-grid">
-                <!-- Case Study 1: Hypa -->
+                <!-- Case Study 1: Hypa - Image Left, Content Right -->
                 <div class="case-study-item fade-in-up" data-project-title="Hypa Apps">
                     <a href="project-hypa.html" class="case-study-link">
                         <div class="case-study-card work-card-hypa">
@@ -222,25 +294,27 @@
                         </div>
                     </a>
                     <div class="case-study-info">
-                        <h2 class="case-study-title">Hypa Apps</h2>
+                        <h2 class="case-study-title">Hypa apps</h2>
                         <p class="case-study-description">A sleek brand identity and website design created to showcase Hypa's BigCommerce tools, using geometric shapes and space-inspired visuals to communicate innovation, clarity, and potential for growth.</p>
+                        <a href="project-hypa.html" class="read-case-study-btn">Read case study</a>
                     </div>
                 </div>
 
-                <!-- Case Study 2: Gener8 Labs -->
-                <div class="case-study-item fade-in-up" data-project-title="Gener8 Labs">
+                <!-- Case Study 2: Gener8 Labs - Content Left, Image Right -->
+                <div class="case-study-item reverse fade-in-up" data-project-title="Gener8 Labs">
+                    <div class="case-study-info">
+                        <h2 class="case-study-title">Gener8 Labs</h2>
+                        <p class="case-study-description">A polished Webflow website design for a B2B data company, crafted to clearly communicate their value and build trust with clients through intuitive UX, strong visuals, and a cohesive visual identity.</p>
+                        <a href="project-gener8labs.html" class="read-case-study-btn">Read case study</a>
+                    </div>
                     <a href="project-gener8labs.html" class="case-study-link">
                         <div class="case-study-card work-card-gener8labs">
                             <img src="images/gener8labs-home.png" alt="Gener8 Labs" class="case-study-image">
                         </div>
                     </a>
-                    <div class="case-study-info">
-                        <h2 class="case-study-title">Gener8 Labs</h2>
-                        <p class="case-study-description">A polished Webflow website design for a B2B data company, crafted to clearly communicate their value and build trust with clients through intuitive UX, strong visuals, and a cohesive visual identity.</p>
-                    </div>
                 </div>
 
-                <!-- Case Study 3: Gener8 Tiers -->
+                <!-- Case Study 3: Gener8 Tiers - Image Left, Content Right -->
                 <div class="case-study-item fade-in-up" data-project-title="Gener8 Tiers">
                     <a href="project-gener8.html" class="case-study-link">
                         <div class="case-study-card work-card-gener8">
@@ -250,6 +324,7 @@
                     <div class="case-study-info">
                         <h2 class="case-study-title">Gener8 Tiers</h2>
                         <p class="case-study-description">Gamifying the data-sharing experience through a tiered rewards system that encourages deeper engagement and connectivity.</p>
+                        <a href="project-gener8.html" class="read-case-study-btn">Read case study</a>
                     </div>
                 </div>
             </div>
@@ -381,3 +456,4 @@
     </script>
 </body>
 </html>
+
