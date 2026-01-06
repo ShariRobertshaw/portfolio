@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    
+    <!-- Social Preview (Open Graph) -->
+    <meta property="og:title" content="Works - Shari Robertshaw">
+    <meta property="og:description" content="Product design grounded in curiosity, collaboration, and meaningful craft.">
+    <meta property="og:image" content="https://www.sharirobertshaw.com/images/social-preview.png">
+    <meta property="og:url" content="https://www.sharirobertshaw.com/works.html">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Works - Shari Robertshaw">
+    <meta name="twitter:description" content="Product design grounded in curiosity, collaboration, and meaningful craft.">
+    <meta name="twitter:image" content="https://www.sharirobertshaw.com/images/social-preview.png">
+    
+    <title>Works - Shari Robertshaw</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:wght@400&family=Instrument+Sans:wght@400;500;600&family=Geist+Mono:wght@400&display=swap" rel="stylesheet">
+    <style>
+        /* Works Page Specific Styles */
+        .works-container {
+            max-width: 1408px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        /* Case Studies Section */
+        .case-studies-section {
+            margin-top: 88px;
+            margin-bottom: 130px;
+        }
+
+        .section-label-works {
+            font-family: 'Geist Mono', monospace;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.24px;
+            color: var(--green-dark);
+            margin-bottom: 88px;
+        }
+
+        .case-studies-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 130px;
+        }
+
+        .case-study-item {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-areas: "image content";
+            gap: 80px;
+            align-items: center;
+        }
+
+        .case-study-item .case-study-link {
+            grid-area: image;
+        }
+
+        .case-study-item .case-study-info {
+            grid-area: content;
+        }
+
+        /* Alternate layout: content on left, image on right */
+        .case-study-item.reverse {
+            grid-template-areas: "content image";
+        }
+
+        .case-study-link {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            cursor: none;
+        }
+
+        .case-study-card {
+            border-radius: 40px;
+            overflow: hidden;
+            transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            width: 100%;
+            aspect-ratio: 1/1;
+            background-color: var(--beige);
+        }
+
+        .case-study-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .case-study-image,
+        .case-study-video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .case-study-info {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .case-study-title {
+            font-family: 'Instrument Sans', sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            line-height: 1.6;
+            color: #114D00;
+            word-wrap: break-word;
+            margin: 0;
+        }
+
+        .case-study-description {
+            font-family: 'Instrument Sans', sans-serif;
+            font-size: 18px;
+            line-height: 1.6;
+            color: var(--green-dark);
+            margin: 0;
+        }
+
+        .read-case-study-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--green-light);
+            color: var(--green-dark);
+            padding: 8px 16px;
+            border-radius: 30px;
+            font-family: 'Geist Mono', monospace;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.24px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            width: fit-content;
+        }
+
+        .read-case-study-btn:hover {
+            background-color: var(--green-dark);
+            color: var(--green-light);
+        }
+
+        /* Past Work Section */
+        .past-work-title {
+            font-family: 'Instrument Serif', serif;
+            font-size: 80px;
+            line-height: 82px;
+            color: var(--green-dark);
+            font-weight: 400;
+            text-align: center;
+            margin: 0 0 130px 0;
+            padding: 0;
+        }
+
+        .past-work-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 88px;
+            align-items: center;
+            margin-bottom: 130px;
+        }
+
+        .past-work-item {
+            width: 100%;
+            max-width: 1200px;
+            cursor: none;
+        }
+
+        .past-work-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 40px;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 1200px) {
+            .case-study-item {
+                gap: 60px;
+            }
+
+            .case-studies-grid {
+                gap: 100px;
+            }
+
+
+            .past-work-title {
+                font-size: 60px;
+                line-height: 70px;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .case-study-item {
+                display: flex;
+                flex-direction: column;
+                gap: 32px;
+            }
+
+            .case-study-item .case-study-link {
+                order: 1;
+            }
+
+            .case-study-item .case-study-info {
+                order: 2;
+                gap: 16px;
+            }
+
+            .case-studies-grid {
+                gap: 80px;
+            }
+
+            .section-label-works {
+                margin-bottom: 60px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .works-container {
+                padding: 0 16px;
+            }
+
+            .case-study-title {
+                font-size: 16px;
+            }
+
+            .case-study-description {
+                font-size: 16px;
+            }
+
+            .case-study-info {
+                gap: 16px;
+            }
+
+            .past-work-title {
+                font-size: 48px;
+                line-height: 56px;
+                margin-bottom: 88px;
+            }
+
+            .case-studies-section {
+                margin-top: 56px;
+                margin-bottom: 88px;
+            }
+
+            .case-studies-grid {
+                gap: 60px;
+            }
+
+            .past-work-grid {
+                gap: 56px;
+                margin-bottom: 88px;
+            }
+
+            .case-study-card {
+                border-radius: 24px;
+            }
+
+            .past-work-image {
+                border-radius: 24px;
+            }
+        }
+
+        @media (max-width: 480px) {
+
+            .past-work-title {
+                font-size: 40px;
+                line-height: 48px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="nav-container"></div>
+    
+    <main class="homepage">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <h1 class="hero-title fade-in-up">A selection of case studies and past projects</h1>
+        </section>
+
+        <!-- Case Studies Section -->
+        <section class="works-container case-studies-section">
+            <div class="section-label-works fade-in-up">CASE STUDIES</div>
+            
+            <div class="case-studies-grid">
+                <!-- Case Study 1: Hypa - Image Left, Content Right -->
+                <div class="case-study-item fade-in-up" data-project-title="Hypa Apps">
+                    <a href="project-hypa.html" class="case-study-link">
+                        <div class="case-study-card work-card-hypa">
+                            <video autoplay loop muted playsinline class="case-study-video">
+                                <source src="images/hypaapps_v2.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </a>
+                    <div class="case-study-info">
+                        <h2 class="case-study-title">Hypa apps</h2>
+                        <p class="case-study-description">A sleek brand identity and website design created to showcase Hypa's BigCommerce tools, using geometric shapes and space-inspired visuals to communicate innovation, clarity, and potential for growth.</p>
+                        <a href="project-hypa.html" class="read-case-study-btn">Read case study</a>
+                    </div>
+                </div>
+
+                <!-- Case Study 2: Gener8 Labs - Content Left, Image Right -->
+                <div class="case-study-item reverse fade-in-up" data-project-title="Gener8 Labs">
+                    <div class="case-study-info">
+                        <h2 class="case-study-title">Gener8 Labs</h2>
+                        <p class="case-study-description">A polished Webflow website design for a B2B data company, crafted to clearly communicate their value and build trust with clients through intuitive UX, strong visuals, and a cohesive visual identity.</p>
+                        <a href="project-gener8labs.html" class="read-case-study-btn">Read case study</a>
+                    </div>
+                    <a href="project-gener8labs.html" class="case-study-link">
+                        <div class="case-study-card work-card-gener8labs">
+                            <img src="images/gener8labs-home.png" alt="Gener8 Labs" class="case-study-image">
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Case Study 3: Gener8 Tiers - Image Left, Content Right -->
+                <div class="case-study-item fade-in-up" data-project-title="Gener8 Tiers">
+                    <a href="project-gener8.html" class="case-study-link">
+                        <div class="case-study-card work-card-gener8">
+                            <img src="images/gener8_home.png" alt="Gener8 Tiers" class="case-study-image">
+                        </div>
+                    </a>
+                    <div class="case-study-info">
+                        <h2 class="case-study-title">Gener8 Tiers</h2>
+                        <p class="case-study-description">Gamifying the data-sharing experience through a tiered rewards system that encourages deeper engagement and connectivity.</p>
+                        <a href="project-gener8.html" class="read-case-study-btn">Read case study</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Past Work Section -->
+        <section class="works-container">
+            <h2 class="past-work-title fade-in-up">A scroll through past work</h2>
+            
+            <div class="past-work-grid">
+                <div class="past-work-item fade-in-up">
+                    <img src="images/work/CSP.png" alt="CSP Website" class="past-work-image">
+                </div>
+                <div class="past-work-item fade-in-up">
+                    <img src="images/work/Gener8-referral.png" alt="Gener8 Referral" class="past-work-image">
+                </div>
+                <div class="past-work-item fade-in-up">
+                    <img src="images/work/Tata.png" alt="Tata Steel" class="past-work-image">
+                </div>
+                <div class="past-work-item fade-in-up">
+                    <img src="images/work/Tata-1.png" alt="Tata Steel" class="past-work-image">
+                </div>
+                <div class="past-work-item fade-in-up">
+                    <img src="images/work/Greensil.png" alt="Greensil Bank" class="past-work-image">
+                </div>
+                <div class="past-work-item fade-in-up">
+                    <img src="images/work/Smythson.png" alt="Smythson" class="past-work-image">
+                </div>
+                <div class="past-work-item fade-in-up">
+                    <img src="images/work/My Whiskey.png" alt="My Whiskey Journeys" class="past-work-image">
+                </div>
+                <div class="past-work-item fade-in-up">
+                    <img src="images/work/JNJ.png" alt="Johnson & Johnson" class="past-work-image">
+                </div>
+                <div class="past-work-item fade-in-up">
+                    <img src="images/work/Olam-At-Source.png" alt="Olam" class="past-work-image">
+                </div>
+                <div class="past-work-item fade-in-up">
+                    <img src="images/work/Spoka.png" alt="Spoka" class="past-work-image">
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact-section" id="contact">
+            <div class="section-header">
+                <h2 class="section-label">Get in touch</h2>
+            </div>
+            <div class="contact-content">
+                <p class="contact-text">
+                    Email me at <a href="#" class="email-link" id="email-link">hello@sharirobertshaw.com</a>
+                </p>
+                <p class="contact-text">
+                    Or find me on <a href="https://www.linkedin.com/in/sharirobertshaw/" target="_blank" rel="noopener noreferrer" class="linkedin-link">LinkedIn</a>
+                </p>
+            </div>
+            <div class="copy-message" id="copy-message">Email copied to clipboard!</div>
+        </section>
+    </main>
+
+    <div id="footer-container"></div>
+
+    <script src="components.js"></script>
+    <script src="scripts.js"></script>
+    <script>
+        // Initialize Tag Cursor for Case Study Cards
+        function initCaseStudyCursor() {
+            let tagCursor = document.getElementById('tag-cursor');
+            if (!tagCursor) {
+                tagCursor = document.createElement('div');
+                tagCursor.id = 'tag-cursor';
+                const tagPill = document.createElement('div');
+                tagPill.className = 'tag-pill';
+                const tagText = document.createElement('p');
+                tagText.className = 'tag-text';
+                tagPill.appendChild(tagText);
+                tagCursor.appendChild(tagPill);
+                document.body.appendChild(tagCursor);
+            }
+            
+            const tagTextEl = tagCursor.querySelector('.tag-text');
+
+            document.addEventListener('mousemove', (e) => {
+                if (tagCursor.classList.contains('active')) {
+                    tagCursor.style.left = `${e.clientX}px`;
+                    tagCursor.style.top = `${e.clientY}px`;
+                }
+            });
+
+            const caseStudyItems = document.querySelectorAll('.case-study-item');
+            
+            caseStudyItems.forEach(item => {
+                const projectTitle = item.getAttribute('data-project-title');
+                
+                item.addEventListener('mouseenter', () => {
+                    if (tagTextEl && projectTitle) {
+                        tagTextEl.textContent = projectTitle;
+                        tagCursor.classList.add('active');
+                    }
+                });
+
+                item.addEventListener('mouseleave', () => {
+                    tagCursor.classList.remove('active');
+                });
+            });
+        }
+
+        // Initialize Tag Cursor for Past Work Items
+        function initPastWorkCursor() {
+            let tagCursor = document.getElementById('tag-cursor');
+            const tagTextEl = tagCursor ? tagCursor.querySelector('.tag-text') : null;
+            const pastWorkItems = document.querySelectorAll('.past-work-item');
+            
+            pastWorkItems.forEach(item => {
+                const img = item.querySelector('.past-work-image');
+                const projectTitle = img ? img.getAttribute('alt') : '';
+                
+                item.addEventListener('mouseenter', () => {
+                    if (tagTextEl && projectTitle) {
+                        tagTextEl.textContent = projectTitle;
+                        tagCursor.classList.add('active');
+                    }
+                });
+
+                item.addEventListener('mouseleave', () => {
+                    if (tagCursor) tagCursor.classList.remove('active');
+                });
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            initCaseStudyCursor();
+            initPastWorkCursor();
+        });
+    </script>
+</body>
+</html>
+
+
+
