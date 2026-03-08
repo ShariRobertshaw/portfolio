@@ -5,6 +5,7 @@
     --beige: #f7f7f2;
     --purple: #f6f5fa;
     --text-dark: #114d00;
+    --page-padding: 32px;
 }
 
 * {
@@ -178,7 +179,7 @@ body {
 .homepage {
     max-width: 1408px;
     margin: 0 auto;
-    padding: 0 32px;
+    padding: 0 var(--page-padding);
     display: flex;
     flex-direction: column;
     gap: 130px;
@@ -301,28 +302,37 @@ body {
 }
 
 .work-gallery {
+    --work-content-offset: var(--page-padding);
     display: flex;
     gap: 50px;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
+    scroll-padding-left: var(--work-content-offset);
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
     padding-bottom: 20px;
-    padding-top: 20px; /* Added space for hover lift */
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
+    padding-top: 20px;
+    padding-left: var(--work-content-offset);
+    padding-right: 0;
     width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
 }
 
 .work-gallery::before {
-    content: "";
-    flex: 0 0 calc((100vw - 100%) / 2 + 32px);
-    display: block;
+    content: none;
+}
+
+@media (min-width: 1472px) {
+    .work-gallery {
+        --work-content-offset: calc((100vw - 1408px) / 2 + var(--page-padding));
+    }
 }
 
 .work-gallery::-webkit-scrollbar {
-    height: 8px;
+    display: none;
 }
 
 .work-gallery::-webkit-scrollbar-track {
@@ -902,7 +912,8 @@ body {
     }
 
     .homepage {
-        padding: 0 16px;
+        --page-padding: 16px;
+        padding: 0 var(--page-padding);
         gap: 60px;
     }
 
@@ -922,25 +933,18 @@ body {
 
     .work-gallery {
         gap: 20px;
-        position: relative;
-        left: 50%;
-        transform: translateX(-50%);
+        --work-content-offset: var(--page-padding);
         width: 100vw;
-        padding: 20px 0;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        padding-left: var(--work-content-offset);
+        padding-right: 0;
         display: flex;
         overflow-x: auto;
     }
 
     .work-gallery::before {
-        content: "";
-        flex: 0 0 calc((100vw - 100%) / 2 + 16px);
-        display: block;
-    }
-
-    .work-gallery::after {
-        content: "";
-        flex: 0 0 16px;
-        display: block;
+        content: none;
     }
 
     .work-item {
