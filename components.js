@@ -85,9 +85,33 @@ function loadFooter() {
     }
 }
 
+// Load contact section component
+function loadContact() {
+    const contactContainer = document.getElementById('contact-container');
+    if (contactContainer) {
+        contactContainer.innerHTML = `
+            <section class="contact-section" id="contact">
+                <div class="section-header">
+                    <h2 class="section-label">Get in touch</h2>
+                </div>
+                <div class="contact-content">
+                    <p class="contact-text">
+                        Email me at <a href="#" class="email-link" id="email-link">hello@sharirobertshaw.com</a>
+                    </p>
+                    <p class="contact-text">
+                        <a href="https://calendly.com/shari-robertshaw/30min" target="_blank" rel="noopener noreferrer" class="linkedin-link">Book a call</a>, or find me on <a href="https://www.linkedin.com/in/sharirobertshaw/" target="_blank" rel="noopener noreferrer" class="linkedin-link">LinkedIn</a>
+                    </p>
+                </div>
+                <div class="copy-message" id="copy-message">Email copied to clipboard!</div>
+            </section>
+        `;
+    }
+}
+
 // Initialize components when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
     loadNav();
     loadFooter();
+    loadContact();
 });
 

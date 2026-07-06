@@ -657,6 +657,12 @@ body {
     height: 200px;
 }
 
+#custom-cursor.cursor-muchi {
+    background-image: url('images/hover-muchi.png');
+    width: 195px;
+    height: 200px;
+}
+
 /* Tag Cursor Styles for Work Items */
 #tag-cursor {
     position: fixed;
@@ -734,6 +740,10 @@ body {
     flex-direction: column;
     gap: 24px;
     padding-bottom: 100px;
+}
+
+.homepage .contact-section:not(:last-child) {
+    padding-bottom: 0;
 }
 
 .contact-content {
@@ -1746,6 +1756,10 @@ body {
     display: flex;
     flex-direction: column;
     gap: 0;
+}
+
+.case-study-content > .case-study-item:only-child {
+    align-items: center;
 }
 
 .case-study-label {

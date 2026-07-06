@@ -369,6 +369,8 @@ function initCustomCursor() {
                     cursorEl.classList.add('cursor-hypa');
                 } else if (card.classList.contains('service-card-gener8labs')) {
                     cursorEl.classList.add('cursor-gener8labs');
+                } else if (card.classList.contains('service-card-muchi')) {
+                    cursorEl.classList.add('cursor-muchi');
                 }
             }
         });
@@ -379,6 +381,7 @@ function initCustomCursor() {
                 cursorEl.classList.remove('cursor-gener8');
                 cursorEl.classList.remove('cursor-hypa');
                 cursorEl.classList.remove('cursor-gener8labs');
+                cursorEl.classList.remove('cursor-muchi');
             }
         });
     });

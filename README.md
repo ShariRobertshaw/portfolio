@@ -21,7 +21,7 @@ A responsive portfolio website showcasing skills and work, built for GitHub Page
 ├── about.html          # About page (placeholder)
 ├── styles.css          # All styles
 ├── scripts.js          # JavaScript functionality
-├── components.js       # Reusable nav and footer components
+├── components.js       # Reusable nav, footer, and contact components
 ├── assets/             # Image assets (you'll need to add your images)
 └── README.md          # This file
 ```
