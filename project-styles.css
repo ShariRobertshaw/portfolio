@@ -101,19 +101,19 @@
 /* Branding Section */
 .hypa-branding-section {
     width: 100%;
-    margin: 80px 0;
+    margin: 24px 0;
 }
 
 @media (max-width: 768px) {
     .hypa-branding-section {
-        margin: 32px 0;
+        margin: 16px 0;
     }
 }
 
 /* Testimonial Section */
 .hypa-testimonial-section {
     width: 100%;
-    margin: 80px 0;
+    margin: 24px 0;
 }
 
 .hypa-testimonial-container {
@@ -293,7 +293,7 @@
     }
     
     .hypa-testimonial-section {
-        margin: 32px 0;
+        margin: 16px 0;
     }
 }
 
@@ -329,8 +329,8 @@
     justify-content: center;
     align-items: center;
     gap: 40px; /* Start with arrows relatively close */
-    margin-top: 60px;
-    margin-bottom: 60px;
+    margin-top: 24px;
+    margin-bottom: 24px;
     padding: 0 20px;
     position: relative;
     min-height: 37px;
@@ -420,12 +420,397 @@
 
 @media (max-width: 768px) {
     .project-navigation {
-        margin-top: 60px;
-        margin-bottom: 40px;
+        margin-top: 20px;
+        margin-bottom: 16px;
         padding: 0 16px;
     }
     
     .project-nav-link {
         font-size: 14px;
+    }
+}
+
+/* Muchi Project Specifics */
+.muchi-hero-image-container {
+    width: calc(100% - 64px);
+    max-width: 1166px;
+    margin: 0 auto;
+    padding: 32px 32px 52px;
+    border-radius: 40px;
+    overflow: hidden;
+}
+
+.muchi-hero-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 30px;
+    object-fit: cover;
+}
+
+.muchi-brand-section {
+    width: calc(100% - 64px);
+    max-width: 1166px;
+    margin: 0 auto 28px;
+    padding: 0 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 19px;
+}
+
+.muchi-brand-hero {
+    width: 100%;
+    background-color: #f9f6f0;
+    border-radius: 0;
+    overflow: hidden;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.muchi-brand-video {
+    height: 100%;
+    width: auto;
+    max-width: 100%;
+    display: block;
+    object-fit: contain;
+}
+
+.muchi-brand-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 19px;
+}
+
+.muchi-brand-panel {
+    border-radius: 0;
+    overflow: hidden;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.muchi-brand-panel-purple {
+    background-color: #937ed9;
+}
+
+.muchi-brand-panel-lime {
+    background-color: #d1e02b;
+}
+
+.muchi-blink-image {
+    max-width: 297px;
+    width: 52%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+}
+
+.muchi-logo-video {
+    height: 100%;
+    width: auto;
+    max-width: 100%;
+    display: block;
+    object-fit: contain;
+}
+
+.muchi-sketch-section {
+    width: 100%;
+    margin-bottom: 16px;
+}
+
+.muchi-sketch-grid {
+    display: flex;
+    gap: 42px;
+    justify-content: center;
+    align-items: center;
+    max-width: 1168px;
+    width: calc(100% - 64px);
+    margin: 0 auto;
+    padding: 80px 40px;
+    background-color: var(--green-light);
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.muchi-sketch-card {
+    flex: 1 1 0;
+    max-width: 350px;
+    aspect-ratio: 1;
+    background-color: #fdfdfd;
+    border-radius: 0;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.muchi-sketch-image {
+    width: 100%;
+    height: calc(100% + 8px);
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+}
+
+.muchi-video-section {
+    width: 100%;
+    margin-bottom: 16px;
+}
+
+.muchi-video-container {
+    max-width: 1168px;
+    width: calc(100% - 64px);
+    margin: 0 auto;
+    padding: 70px 50px;
+    background-color: var(--green-light);
+    border-radius: 30px;
+    display: flex;
+    gap: 35px;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.muchi-product-video-frame {
+    flex: 0 0 328px;
+    width: 328px;
+    height: 560px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+    background-color: var(--green-light);
+}
+
+.muchi-product-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.muchi-judgment-section {
+    width: 100%;
+    margin-bottom: 16px;
+}
+
+.muchi-judgment-container {
+    max-width: 1168px;
+    width: calc(100% - 64px);
+    margin: 0 auto;
+    background-color: var(--green-light);
+    border-radius: 30px;
+    padding: 60px 59px 68px 75px;
+    overflow: hidden;
+}
+
+.muchi-judgment-scroll {
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-color: var(--green-dark) transparent;
+    margin-left: -75px;
+    margin-right: -59px;
+    padding-left: 75px;
+    padding-right: 59px;
+    padding-bottom: 48px;
+}
+
+.muchi-judgment-title {
+    position: sticky;
+    left: 50%;
+    transform: translateX(-50%);
+    width: max-content;
+    z-index: 2;
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 18px;
+    line-height: 30px;
+    font-weight: 500;
+    color: var(--green-dark);
+    text-align: center;
+    margin: 0 0 48px;
+    padding: 0 16px;
+    background-color: var(--green-light);
+}
+
+.muchi-judgment-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 27px;
+    min-width: max-content;
+}
+
+.muchi-judgment-headers,
+.muchi-judgment-row {
+    display: flex;
+    gap: 48px;
+    align-items: stretch;
+}
+
+.muchi-judgment-headers p {
+    flex: 0 0 264px;
+    width: 264px;
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 16px;
+    line-height: 30px;
+    font-weight: 500;
+    color: var(--green-dark);
+    text-align: left;
+    margin: 0;
+}
+
+.muchi-judgment-card {
+    flex: 0 0 264px;
+    width: 264px;
+    background-color: #fbfff6;
+    border-radius: 20px;
+    padding: 25px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 16px;
+}
+
+.muchi-judgment-tag {
+    display: block;
+    font-family: 'Geist Mono', monospace;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 12px;
+    letter-spacing: 0.24px;
+    text-transform: uppercase;
+    color: #114D00;
+    flex: none;
+    align-self: flex-start;
+}
+
+.muchi-judgment-card--blank {
+    visibility: hidden;
+}
+
+.muchi-judgment-card p {
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 16px;
+    line-height: 22px;
+    font-weight: 500;
+    color: var(--green-dark);
+    text-align: left;
+    margin: 0;
+    width: 100%;
+}
+
+.muchi-judgment-divider {
+    width: 100%;
+    height: 1px;
+    background-color: rgba(17, 77, 0, 0.2);
+}
+
+.muchi-status-section {
+    max-width: 632px;
+    margin: 4px auto;
+    padding: 0 32px;
+}
+
+.project-case-study:has(+ .muchi-status-section) {
+    margin-bottom: 4px;
+}
+
+.muchi-status-section + .project-case-study {
+    margin-bottom: 4px;
+}
+
+.muchi-status-box {
+    background-color: var(--green-light);
+    border-radius: 8px;
+    padding: 16px;
+}
+
+.muchi-status-box .case-study-label {
+    margin-bottom: 13px;
+}
+
+@media (max-width: 768px) {
+    .muchi-hero-image-container {
+        width: 100%;
+        padding: 0 16px 32px;
+    }
+
+    .muchi-brand-section {
+        width: 100%;
+        padding: 0 16px;
+        margin-bottom: 20px;
+    }
+
+    .muchi-brand-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .muchi-brand-hero,
+    .muchi-brand-panel {
+        height: 280px;
+    }
+
+    .muchi-sketch-grid {
+        width: calc(100% - 32px);
+        padding: 40px 24px;
+        gap: 16px;
+        flex-wrap: wrap;
+    }
+
+    .muchi-sketch-card {
+        flex: 1 1 calc(50% - 8px);
+        max-width: none;
+        min-width: 140px;
+    }
+
+    .muchi-video-container {
+        width: calc(100% - 32px);
+        padding: 40px 24px;
+    }
+
+    .muchi-product-video-frame {
+        flex: 0 0 328px;
+        width: 328px;
+        max-width: 100%;
+        height: 560px;
+    }
+
+    .muchi-judgment-container {
+        width: calc(100% - 32px);
+        padding: 32px 24px 40px;
+    }
+
+    .muchi-judgment-scroll {
+        margin-left: -24px;
+        margin-right: -24px;
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+
+    .muchi-judgment-title {
+        font-size: 16px;
+        line-height: 26px;
+        margin-bottom: 40px;
+    }
+
+    .muchi-judgment-headers p,
+    .muchi-judgment-card {
+        flex: 0 0 220px;
+        width: 220px;
+    }
+
+    .muchi-judgment-headers p {
+        font-size: 14px;
+        line-height: 28px;
+    }
+
+    .muchi-judgment-card p {
+        font-size: 14px;
+        line-height: 20px;
     }
 }

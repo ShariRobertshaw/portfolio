@@ -368,6 +368,10 @@ body {
     background-color: var(--beige);
 }
 
+.work-card-muchi {
+    background-color: #d47024;
+}
+
 .work-item-link:hover .work-card {
     /* Removed transform scaling of container */
     transform: none;
@@ -1255,7 +1259,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 32px;
+    padding: 30px 0;
     background: transparent;
     border: none;
     cursor: pointer;
@@ -1331,11 +1335,11 @@ body {
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), padding 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-    padding: 0 32px;
+    padding: 0;
 }
 
 .accordion-header[aria-expanded="true"] + .accordion-content {
-    padding: 0 32px 32px 32px;
+    padding: 0 0 32px 0;
     max-height: 2000px; /* Large enough for content */
 }
 
@@ -1409,7 +1413,7 @@ body {
     }
 
     .accordion-header {
-        padding: 24px;
+        padding: 24px 0;
         flex-wrap: wrap;
     }
 
@@ -1430,8 +1434,8 @@ body {
 
     .accordion-content,
     .accordion-header[aria-expanded="true"] + .accordion-content {
-        padding-left: 24px;
-        padding-right: 24px;
+        padding-left: 0;
+        padding-right: 0;
     }
 
     .accordion-body {
@@ -1481,7 +1485,7 @@ body {
     }
 
     .accordion-header {
-        padding: 20px;
+        padding: 20px 0;
     }
 
     .accordion-title {
@@ -1496,12 +1500,12 @@ body {
 
 /* Project Page Styles */
 .project-page {
-    padding-top: 60px;
+    padding-top: 24px;
 }
 
 .project-hero {
     text-align: center;
-    margin-bottom: 88px;
+    margin-bottom: 28px;
 }
 
 .project-hero .hero-title {
@@ -1512,7 +1516,7 @@ body {
 
 /* Hero Image Section */
 .project-hero-image-section {
-    margin-bottom: 40px;
+    margin-bottom: 16px;
     padding: 0;
 }
 
@@ -1533,7 +1537,7 @@ body {
 
 /* Project Description Section */
 .project-description-section {
-    margin-bottom: 88px;
+    margin-bottom: 28px;
     max-width: 612px;
     margin-left: auto;
     margin-right: auto;
@@ -1566,10 +1570,18 @@ body {
     margin: 0;
 }
 
+.project-description-text p {
+    margin: 0;
+}
+
+.project-description-text p + p {
+    margin-top: 1em;
+}
+
 /* Main Image Section */
 .project-image-section {
     width: 100%;
-    margin-bottom: 40px;
+    margin-bottom: 16px;
 }
 
 /* Video section - reduce space after video */
@@ -1579,8 +1591,8 @@ body {
 
 /* Wireframe section - reduce space above and below */
 .project-image-section.wireframe-section {
-    margin-top: 80px;
-    margin-bottom: 80px;
+    margin-top: 24px;
+    margin-bottom: 24px;
 }
 
 .project-image-section + .project-case-study {
@@ -1589,7 +1601,7 @@ body {
 }
 
 .project-image-section.video-section + .project-case-study {
-    margin-top: -16px;
+    margin-top: 0;
 }
 
 .project-image-container {
@@ -1640,18 +1652,23 @@ body {
 
 /* Case Study Section */
 .project-case-study {
-    margin-bottom: 40px;
+    margin-bottom: 16px;
     max-width: 612px;
     margin-left: auto;
     margin-right: auto;
     padding: 0 32px;
 }
 
+.project-page .contact-section {
+    margin-top: 28px;
+    border-top: 1px solid var(--green-mid);
+}
+
 .case-study-header {
     display: flex;
     flex-direction: column;
     gap: 16px;
-    margin-bottom: 35px;
+    margin-bottom: 16px;
 }
 
 .case-study-title {
@@ -1713,6 +1730,16 @@ body {
     margin: 0;
 }
 
+div.case-study-text {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+div.case-study-text p {
+    margin: 0;
+}
+
 .case-study-text strong {
     font-weight: 600;
 }
@@ -1754,7 +1781,7 @@ body {
 
 @media (max-width: 768px) {
     .project-hero {
-        margin-bottom: 60px;
+        margin-bottom: 20px;
     }
 
     .project-hero .hero-title {
@@ -1763,7 +1790,7 @@ body {
     }
     
     .project-hero-image-section {
-        margin-bottom: 32px;
+        margin-bottom: 12px;
         padding: 0;
     }
     
@@ -1772,7 +1799,7 @@ body {
     }
     
     .project-description-section {
-        margin-bottom: 60px;
+        margin-bottom: 20px;
         padding: 0 16px;
     }
     
@@ -1782,16 +1809,16 @@ body {
     }
     
     .project-image-section {
-        margin-bottom: 32px;
+        margin-bottom: 12px;
     }
 
     .project-image-section.video-section {
-        margin-bottom: 16px;
+        margin-bottom: 8px;
     }
 
     .project-image-section.wireframe-section {
-        margin-top: 60px;
-        margin-bottom: 60px;
+        margin-top: 20px;
+        margin-bottom: 20px;
     }
     
     .project-image-container {
@@ -1805,12 +1832,16 @@ body {
     }
     
     .project-case-study {
-        margin-bottom: 32px;
+        margin-bottom: 12px;
         padding: 0 16px;
+    }
+
+    .project-page .contact-section {
+        margin-top: 20px;
     }
     
     .case-study-header {
-        margin-bottom: 24px;
+        margin-bottom: 12px;
     }
     
     .case-study-title {
@@ -1832,7 +1863,7 @@ body {
 
 @media (max-width: 480px) {
     .project-hero {
-        margin-bottom: 60px;
+        margin-bottom: 20px;
     }
 
     .project-hero .hero-title {
@@ -1884,7 +1915,7 @@ body {
     }
     
     .project-case-study {
-        margin-bottom: 32px;
+        margin-bottom: 12px;
         padding: 0 16px;
     }
     
@@ -1905,3 +1936,185 @@ body {
         line-height: 24px;
     }
 }
+
+/* ========================================
+   NEW ABOUT PAGE STYLES
+======================================== */
+
+/* About Hero with Profile Photo */
+.about-hero-new {
+    padding: 160px 32px 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.about-hero-content {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    max-width: 600px;
+}
+
+.about-hero-content .hero-title {
+    font-family: 'Instrument Serif', serif;
+    font-size: 80px;
+    line-height: 82px;
+    color: #114D00;
+    margin: 0;
+    flex-shrink: 0;
+}
+
+.profile-photo {
+    width: 180px;
+    height: 165px;
+    object-fit: cover;
+    border-radius: 10px;
+    flex-shrink: 0;
+}
+
+/* About Bio Section */
+.about-bio-section {
+    padding: 80px 32px 40px;
+    max-width: 1342px;
+    margin: 0 auto;
+}
+
+.about-bio-text {
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 50px;
+    line-height: 55px;
+    color: #114D00;
+    margin: 0;
+    font-variation-settings: 'wdth' 100;
+}
+
+.serif-emphasis {
+    font-family: 'Instrument Serif', serif;
+    font-style: normal;
+}
+
+/* Bath Design Society Section */
+.bath-society-section {
+    padding: 0 32px 40px;
+    max-width: 1342px;
+    margin: 0 auto;
+}
+
+.bath-society-section .section-header {
+    margin-bottom: 16px;
+}
+
+.bath-society-text {
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 24px;
+    line-height: 36px;
+    color: #114D00;
+    margin: 0;
+    font-variation-settings: 'wdth' 100;
+}
+
+.inline-link {
+    color: #114D00;
+    text-decoration: underline;
+    text-decoration-skip-ink: none;
+    text-underline-position: from-font;
+}
+
+.inline-link:hover {
+    opacity: 0.7;
+}
+
+/* Career Journey Section Updates */
+.career-journey-section {
+    padding: 80px 32px;
+    max-width: 1342px;
+    margin: 0 auto;
+}
+
+.career-bio {
+    margin-bottom: 24px;
+}
+
+.career-bio-text {
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 20px;
+    line-height: 32px;
+    color: #114D00;
+    margin: 0;
+    font-variation-settings: 'wdth' 100;
+}
+
+/* Responsive Styles for About Page */
+@media (max-width: 1200px) {
+    .about-bio-text {
+        font-size: 40px;
+        line-height: 45px;
+    }
+}
+
+@media (max-width: 900px) {
+    .about-hero-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 24px;
+    }
+    
+    .about-hero-content .hero-title {
+        font-size: 60px;
+        line-height: 65px;
+    }
+    
+    .profile-photo {
+        width: 150px;
+        height: 140px;
+    }
+    
+    .about-bio-text {
+        font-size: 32px;
+        line-height: 38px;
+    }
+    
+    .bath-society-text {
+        font-size: 18px;
+        line-height: 28px;
+    }
+}
+
+@media (max-width: 768px) {
+    .about-hero-new {
+        padding: 120px 16px 60px;
+    }
+    
+    .about-hero-content .hero-title {
+        font-size: 48px;
+        line-height: 52px;
+    }
+    
+    .profile-photo {
+        width: 120px;
+        height: 110px;
+    }
+    
+    .about-bio-section,
+    .bath-society-section,
+    .career-journey-section {
+        padding: 60px 16px;
+    }
+    
+    .bath-society-section {
+        padding-bottom: 30px;
+    }
+    
+    .about-bio-text {
+        font-size: 26px;
+        line-height: 32px;
+    }
+    
+    .bath-society-text,
+    .career-bio-text {
+        font-size: 16px;
+        line-height: 24px;
+    }
+}
+
