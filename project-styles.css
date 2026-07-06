@@ -576,16 +576,20 @@
 }
 
 .muchi-product-video-frame {
+    position: relative;
     flex: 0 0 328px;
     width: 328px;
-    height: 560px;
+    max-width: 100%;
+    aspect-ratio: 328 / 560;
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
-    background-color: var(--green-light);
+    background-color: transparent;
 }
 
 .muchi-product-video {
+    position: absolute;
+    inset: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -593,7 +597,7 @@
 }
 
 .muchi-product-screenshot {
-    object-fit: contain;
+    object-position: center top;
 }
 
 .muchi-judgment-section {
@@ -792,14 +796,15 @@
 
     .muchi-video-container {
         width: calc(100% - 32px);
-        padding: 40px 24px;
+        padding: 24px 16px;
+        gap: 20px;
     }
 
     .muchi-product-video-frame {
-        flex: 0 0 328px;
-        width: 328px;
-        max-width: 100%;
-        height: 560px;
+        flex: 1 1 auto;
+        width: 100%;
+        max-width: 328px;
+        margin: 0 auto;
     }
 
     .muchi-judgment-container {
