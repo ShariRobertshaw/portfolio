@@ -734,6 +734,24 @@
     margin-bottom: 13px;
 }
 
+.project-page .case-study-content {
+    width: 100%;
+}
+
+.project-page .case-study-item {
+    align-items: flex-start;
+    width: 100%;
+}
+
+.project-page .case-study-label {
+    text-align: left;
+    align-self: stretch;
+}
+
+.project-page .case-study-item.case-study-cta {
+    align-items: center;
+}
+
 @media (max-width: 768px) {
     .muchi-hero-image-container {
         width: 100%;
