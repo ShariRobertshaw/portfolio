@@ -592,6 +592,10 @@
     display: block;
 }
 
+.muchi-product-screenshot {
+    object-fit: contain;
+}
+
 .muchi-judgment-section {
     width: 100%;
     margin-bottom: 16px;
