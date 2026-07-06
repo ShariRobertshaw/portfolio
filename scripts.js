@@ -420,7 +420,9 @@ function initTagCursor() {
         const href = item.getAttribute('href');
         let projectTitle = '';
         
-        if (href.includes('hypa')) {
+        if (href.includes('muchi')) {
+            projectTitle = 'Muchi case study';
+        } else if (href.includes('hypa')) {
             projectTitle = 'Hypa case study';
         } else if (href.includes('gener8labs')) {
             projectTitle = 'Gener8 Labs case study';
