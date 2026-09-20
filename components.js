@@ -108,10 +108,25 @@ function loadContact() {
     }
 }
 
+function loadCloudflareAnalytics() {
+    if (document.querySelector('script[data-cf-beacon]')) return;
+
+    const script = document.createElement('script');
+    script.type = 'module';
+    script.defer = true;
+    script.src = 'https://static.cloudflareinsights.com/beacon.min.js';
+    script.setAttribute(
+        'data-cf-beacon',
+        JSON.stringify({ token: 'e016bf0e857c4c19bba05ba50bdfbe5e' })
+    );
+    document.body.appendChild(script);
+}
+
 // Initialize components when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
     loadNav();
     loadFooter();
     loadContact();
+    loadCloudflareAnalytics();
 });
 
