@@ -1,0 +1,16 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "muchi-stats",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-09-20",
+  "compatibility_flags": ["nodejs_compat"],
+  "observability": {
+    "enabled": true,
+    "head_sampling_rate": 1
+  },
+  "vars": {
+    "POSTHOG_HOST": "https://eu.posthog.com",
+    "POSTHOG_PROJECT_ID": "184574",
+    "CACHE_TTL_SECONDS": "3600"
+  }
+}

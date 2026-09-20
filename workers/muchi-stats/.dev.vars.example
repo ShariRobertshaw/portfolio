@@ -1,0 +1,6 @@
+# Copy to .dev.vars for local `npm run dev`
+# Get a personal API key from:
+# https://eu.posthog.com/settings/user-api-keys
+# Required scope: query:read
+
+POSTHOG_API_KEY=phx_your_personal_api_key_here

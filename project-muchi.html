@@ -20,7 +20,7 @@
     
     <title>Muchi - Shari Robertshaw</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="project-styles.css?v=22">
+    <link rel="stylesheet" href="project-styles.css?v=30">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:wght@400&family=Instrument+Sans:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -242,11 +242,28 @@
             </div>
         </section>
 
+        <!-- Available for iOS -->
+        <section class="muchi-download-section scroll-fade">
+            <p class="muchi-download-heading">Now available for iOS.</p>
+            <a href="https://apps.apple.com/gb/app/muchi-fibre-and-plant-tracker/id6788687335" target="_blank" rel="noopener noreferrer" class="muchi-app-store-link">
+                <img src="images/app-store-badge.png" alt="Download on the App Store" class="muchi-app-store-badge" width="162" height="48">
+            </a>
+        </section>
+
         <!-- Current Status -->
         <section class="muchi-status-section scroll-fade">
-            <div class="muchi-status-box">
-                <p class="case-study-label">Current status</p>
-                <p class="case-study-text">Muchi is live as a web app with a small group of early users while I test and refine it. A native iOS version is in the works and coming to the App Store soon.</p>
+            <p class="muchi-status-heading">Current status pulled from PostHog</p>
+            <div class="muchi-status-grid" id="muchi-status-grid" hidden>
+                <div class="muchi-status-card">
+                    <span class="muchi-status-card-dot" aria-hidden="true"></span>
+                    <p class="muchi-status-card-label">Meals Logged</p>
+                    <p class="muchi-status-card-value" id="muchi-meal-count">—</p>
+                </div>
+                <div class="muchi-status-card">
+                    <span class="muchi-status-card-dot" aria-hidden="true"></span>
+                    <p class="muchi-status-card-label">Weekly active users</p>
+                    <p class="muchi-status-card-value" id="muchi-wau-count">—</p>
+                </div>
             </div>
         </section>
 
@@ -282,5 +299,31 @@
 
     <script src="components.js?v=3"></script>
     <script src="scripts.js?v=3"></script>
+    <script>
+        (function () {
+            var MUCHI_STATS_URL = 'https://muchi-stats.shari-robertshaw.workers.dev/meals?v=2';
+            var gridEl = document.getElementById('muchi-status-grid');
+            var mealEl = document.getElementById('muchi-meal-count');
+            var wauEl = document.getElementById('muchi-wau-count');
+            if (!gridEl || !mealEl || !wauEl || !MUCHI_STATS_URL) return;
+
+            fetch(MUCHI_STATS_URL)
+                .then(function (response) {
+                    if (!response.ok) throw new Error('stats request failed');
+                    return response.json();
+                })
+                .then(function (data) {
+                    if (typeof data.mealsLogged !== 'number' || typeof data.weeklyActiveUsers !== 'number') {
+                        return;
+                    }
+                    mealEl.textContent = data.mealsLogged.toLocaleString('en-GB');
+                    wauEl.textContent = data.weeklyActiveUsers.toLocaleString('en-GB');
+                    gridEl.hidden = false;
+                })
+                .catch(function () {
+                    // Keep the page intact if the Worker is unavailable
+                });
+        })();
+    </script>
 </body>
 </html>
