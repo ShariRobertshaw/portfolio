@@ -19,16 +19,16 @@
     <meta name="twitter:image" content="https://www.sharirobertshaw.com/images/social-preview.png">
     
     <title>Works - Shari Robertshaw</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css?v=31">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:wght@400&family=Instrument+Sans:wght@400;500;600&family=Geist+Mono:wght@400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=Geist+Mono:wght@400&display=swap" rel="stylesheet">
     <style>
         /* Works Page Specific Styles */
         .works-container {
-            max-width: 1408px;
-            margin: 0 auto;
-            padding: 0 32px;
+            max-width: none;
+            margin: 0;
+            padding: 0;
         }
 
         /* Case Studies Section */
@@ -38,11 +38,13 @@
         }
 
         .section-label-works {
-            font-family: 'Geist Mono', monospace;
-            font-size: 12px;
-            text-transform: uppercase;
-            letter-spacing: 0.24px;
-            color: var(--green-dark);
+            font-family: 'Instrument Sans', sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 1;
+            letter-spacing: 0;
+            text-transform: none;
+            color: var(--text-dark);
             margin-bottom: 32px;
         }
 
@@ -149,7 +151,7 @@
 
         /* Past Work Section */
         .past-work-title {
-            font-family: 'Instrument Serif', serif;
+            font-family: 'Instrument Sans', sans-serif;
             font-size: 80px;
             line-height: 82px;
             color: var(--green-dark);
@@ -169,7 +171,7 @@
 
         .past-work-item {
             width: 100%;
-            max-width: 1200px;
+            max-width: none;
             cursor: none;
         }
 
@@ -224,7 +226,7 @@
 
         @media (max-width: 768px) {
             .works-container {
-                padding: 0 16px;
+                padding: 0;
             }
 
             .case-study-title {
@@ -288,7 +290,7 @@
 
         <!-- Case Studies Section -->
         <section class="works-container case-studies-section">
-            <div class="section-label-works fade-in-up">CASE STUDIES</div>
+            <div class="section-label-works fade-in-up">Case studies</div>
             
             <div class="case-studies-grid">
                 <!-- Case Study 1: Muchi - Image Left, Content Right -->
@@ -394,8 +396,8 @@
 
     <div id="footer-container"></div>
 
-    <script src="components.js?v=4"></script>
-    <script src="scripts.js"></script>
+    <script src="components.js?v=6"></script>
+    <script src="scripts.js?v=8"></script>
     <script>
         // Initialize Tag Cursor for Case Study Cards
         function initCaseStudyCursor() {

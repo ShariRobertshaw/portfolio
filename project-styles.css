@@ -299,7 +299,7 @@
 
 /* Quote Styles */
 .quote-text {
-    font-family: 'Instrument Serif', serif;
+    font-family: 'Instrument Sans', sans-serif;
     font-size: 40px; /* Estimated size */
     line-height: 48px;
     color: var(--green-dark);
@@ -1010,4 +1010,136 @@
         font-size: 28px;
         line-height: 34px;
     }
+}
+
+/* Redesign dark theme overrides for project pages */
+.muchi-judgment-container,
+.muchi-judgment-scroll {
+    background: var(--card);
+}
+
+.muchi-judgment-title {
+    color: var(--text-dark);
+    background-color: var(--card);
+}
+
+.muchi-judgment-headers p,
+.muchi-judgment-card p {
+    color: var(--text-dark);
+}
+
+.muchi-judgment-card {
+    background-color: #14180e;
+    border: 1px solid var(--rule);
+}
+
+.muchi-judgment-tag {
+    color: var(--text-sage);
+    text-transform: none;
+    letter-spacing: 0;
+}
+
+.muchi-judgment-divider {
+    background: var(--rule);
+}
+
+.case-study-media-pair .muchi-brand-panel {
+    min-height: 420px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.case-study-media-pair .muchi-brand-panel img,
+.case-study-media-pair .muchi-brand-panel video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    min-height: 420px;
+}
+
+.case-study-media-pair .muchi-brand-panel-purple img.muchi-eyes-image,
+.case-study-media-pair .muchi-brand-panel-purple .muchi-eyes-image {
+    width: 42%;
+    max-width: 220px;
+    height: auto;
+    min-height: 0;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+}
+
+.project-page .project-hero .hero-title,
+.project-page .project-description-label,
+.project-page .project-description-text,
+.project-page .case-study-title,
+.project-page .case-study-label,
+.project-page .case-study-text,
+.project-page .case-study-tag,
+.project-page .project-nav-text {
+    color: var(--text-dark);
+}
+
+.project-page .project-description-label,
+.project-page .case-study-label,
+.project-page .case-study-tag {
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: none;
+    letter-spacing: 0;
+    color: var(--text-muted);
+}
+
+.project-page .case-study-tag {
+    background: var(--card);
+    border: 1px solid var(--rule);
+    color: var(--text-muted);
+}
+
+.project-page .project-description-text,
+.project-page .case-study-text {
+    color: var(--text-muted);
+}
+
+.section-label--eyebrow {
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    font-family: 'Geist Mono', monospace !important;
+    color: var(--text-muted) !important;
+    letter-spacing: 0 !important;
+    text-transform: none !important;
+}
+
+.services-grid-about .service-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: start;
+    padding: 48px 0;
+    border-bottom: 1px solid var(--rule);
+}
+
+@media (max-width: 900px) {
+    .services-grid-about .service-block {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+}
+
+.service-block-title {
+    font-size: 36px;
+    line-height: 1.15;
+}
+
+.service-block-text {
+    color: var(--text-muted);
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.65;
+}
+
+.service-tags {
+    grid-column: 1 / -1;
 }

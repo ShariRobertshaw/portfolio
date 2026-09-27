@@ -444,6 +444,53 @@ function initTagCursor() {
     });
 }
 
+function initThemeSwap(isLight) {
+    const flash = document.createElement('div');
+    flash.id = 'theme-flash';
+    flash.setAttribute('aria-hidden', 'true');
+    document.body.appendChild(flash);
+
+    const motionOk = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let light = false;
+
+    const triggerFlash = () => {
+        if (!motionOk) return;
+        flash.classList.remove('is-flashing');
+        void flash.offsetWidth;
+        flash.classList.add('is-flashing');
+    };
+
+    const setLight = (next) => {
+        if (next === light) return;
+        light = next;
+        triggerFlash();
+        document.body.classList.toggle('theme-light', next);
+    };
+
+    const update = () => setLight(isLight());
+
+    window.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update);
+    update();
+}
+
+function initServicesTheme() {
+    const section = document.querySelector('.homepage .services-section');
+    if (!section || document.querySelector('.about-page')) return;
+
+    initThemeSwap(() => {
+        const rect = section.getBoundingClientRect();
+        return rect.top < window.innerHeight * 0.62 && rect.bottom > window.innerHeight * 0.28;
+    });
+}
+
+function initAboutTheme() {
+    const intro = document.querySelector('.about-page .about-bio-section');
+    if (!intro) return;
+
+    initThemeSwap(() => intro.getBoundingClientRect().bottom < window.innerHeight * 0.55);
+}
+
 // Initialize all functionality when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
     initEmailCopy();
@@ -454,4 +501,6 @@ document.addEventListener('DOMContentLoaded', () => {
     initAccordions();
     initCustomCursor();
     initTagCursor();
+    initServicesTheme();
+    initAboutTheme();
 });
