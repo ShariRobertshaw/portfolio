@@ -146,9 +146,61 @@ function loadCloudflareAnalytics() {
     document.body.appendChild(script);
 }
 
+const buttonChevron = {
+    prev: '<svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M10 3.5L5.5 8 10 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+    next: '<svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M6 3.5L10.5 8 6 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>'
+};
+
+function buttonIcon(direction) {
+    const icon = document.createElement('span');
+    icon.className = 'btn-icon';
+    icon.setAttribute('aria-hidden', 'true');
+    icon.innerHTML = buttonChevron[direction];
+    return icon;
+}
+
+// Turns any <a class="btn"> or <button class="btn"> into the shared button.
+// Default is the forward style. Add btn--prev for a back chevron.
+function enhanceButtons(root = document) {
+    root.querySelectorAll('a.btn, button.btn').forEach((el) => {
+        if (el.dataset.buttonReady === 'true') return;
+
+        const isPrev = el.classList.contains('btn--prev');
+        const existing = el.querySelector('.btn-text, .btn-label, .project-nav-label');
+        const label = (existing ? existing.textContent : el.textContent).trim();
+
+        el.replaceChildren();
+        if (isPrev) el.append(buttonIcon('prev'));
+
+        const labelEl = document.createElement('span');
+        labelEl.className = 'btn-label';
+        labelEl.textContent = label;
+        el.append(labelEl);
+
+        if (!isPrev) el.append(buttonIcon('next'));
+        el.dataset.buttonReady = 'true';
+    });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     loadNav();
     loadFooter();
     loadContact();
     loadCloudflareAnalytics();
+    enhanceButtons();
+    loadCursorGlyphs();
 });
+
+function loadCursorGlyphs() {
+    if (document.getElementById('cursor-glyphs-css')) return;
+
+    const link = document.createElement('link');
+    link.id = 'cursor-glyphs-css';
+    link.rel = 'stylesheet';
+    link.href = 'cursor-glyphs.css?v=3';
+    document.head.appendChild(link);
+
+    const script = document.createElement('script');
+    script.src = 'cursor-glyphs.js?v=3';
+    document.body.appendChild(script);
+}
