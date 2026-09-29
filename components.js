@@ -1,3 +1,10 @@
+function navLink(href, label) {
+    const chars = [...label].map((char, index) =>
+        `<span class="nav-link-char" style="transition-delay:${index * 0.01}s">${char}</span>`
+    ).join('');
+    return `<li><a href="${href}" class="nav-link" aria-label="${label}"><span class="nav-link-text" aria-hidden="true">${chars}</span></a></li>`;
+}
+
 // Load navigation component
 function loadNav() {
     const navContainer = document.getElementById('nav-container');
@@ -15,10 +22,10 @@ function loadNav() {
                         <span class="hamburger-line"></span>
                     </button>
                     <ul class="nav-links">
-                        <li><a href="about.html" class="nav-link"><span class="nav-link-text">About</span></a></li>
-                        <li><a href="services.html" class="nav-link"><span class="nav-link-text">Services</span></a></li>
-                        <li><a href="index.html#work" class="nav-link"><span class="nav-link-text">Work</span></a></li>
-                        <li><a href="index.html#contact" class="nav-link"><span class="nav-link-text">Contact</span></a></li>
+                        ${navLink('about.html', 'About')}
+                        ${navLink('services.html', 'Services')}
+                        ${navLink('index.html#work', 'Work')}
+                        ${navLink('index.html#contact', 'Contact')}
                     </ul>
                 </nav>
             </div>
