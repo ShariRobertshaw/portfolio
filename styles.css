@@ -2848,7 +2848,7 @@ body.theme-light {
 /* Case study credits-rail layout */
 .case-study-layout {
     display: grid;
-    grid-template-columns: minmax(280px, 420px) minmax(0, 1fr);
+    grid-template-columns: max(420px, calc(var(--page-gutter) + 356px)) minmax(0, 1fr);
     gap: 0;
     width: 100vw;
     margin-left: calc(50% - 50vw);
@@ -2949,7 +2949,7 @@ body.theme-light {
 }
 
 .case-study-band--media {
-    padding: 0;
+    padding: 0 var(--page-gutter) 0 64px;
 }
 
 .case-study-scroll > .case-study-band--media:first-child {
@@ -3053,7 +3053,7 @@ body.theme-light {
 .case-study-flow {
     width: 100%;
     background: transparent;
-    padding: 48px 40px;
+    padding: 48px 0;
 }
 
 .case-study-flow img,
@@ -3129,12 +3129,16 @@ body.theme-light {
         padding: 56px var(--page-gutter);
     }
 
+    .case-study-band--media {
+        padding: 0 var(--page-gutter);
+    }
+
     .case-study-scroll > .case-study-band--media:first-child {
         padding: 140px var(--page-gutter) 32px;
     }
 
     .case-study-flow {
-        padding: 32px 20px;
+        padding: 32px 0;
     }
 }
 
