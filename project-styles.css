@@ -809,6 +809,14 @@
     width: 100%;
 }
 
+.muchi-store-badges {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+    margin-top: 12px;
+}
+
 .muchi-app-store-link {
     display: inline-block;
     line-height: 0;
@@ -822,8 +830,8 @@
 
 .muchi-app-store-badge {
     display: block;
-    width: 162px;
-    height: auto;
+    width: auto;
+    height: 48px;
 }
 
 .project-page .case-study-content {
