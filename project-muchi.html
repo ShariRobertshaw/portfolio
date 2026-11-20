@@ -19,7 +19,7 @@
     <title>Muchi - Shari Robertshaw</title>
     <link rel="stylesheet" href="styles.css?v=57">
     <link rel="stylesheet" href="project-styles.css?v=52">
-    <link rel="stylesheet" href="muchi-visuals.css?v=1">
+    <link rel="stylesheet" href="muchi-visuals.css?v=6">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=DM+Sans:wght@400;500&family=DM+Mono:wght@400&display=swap" rel="stylesheet">
@@ -120,20 +120,16 @@
 
                 <section class="case-study-band case-study-band--media scroll-fade">
                     <div class="mv">
-                        <figure class="mv-stage mv-stage--cream mv-moods" role="img" aria-label="The three hand-painted Muchi moods: a purple hungry Muchi, an orange happy Muchi and a green thriving Muchi, with watercolour microbes drifting behind them">
-                            <p class="mv-eyebrow">The gut pet</p>
+                        <figure class="mv-stage mv-stage--cream mv-moods" role="img" aria-label="The three hand-painted Muchi moods: a purple hungry Muchi, an orange happy Muchi and a green thriving Muchi">
                             <div class="mv-moods-row">
-                                <figure class="mv-mood" style="--dot: #937ed9;">
+                                <figure class="mv-mood">
                                     <img src="images/muchi/hungry.gif" alt="">
-                                    <figcaption>Hungry</figcaption>
                                 </figure>
-                                <figure class="mv-mood" style="--dot: #fd7d17;">
+                                <figure class="mv-mood">
                                     <img src="images/muchi/happy.gif" alt="">
-                                    <figcaption>Happy</figcaption>
                                 </figure>
-                                <figure class="mv-mood" style="--dot: #d1e02b;">
+                                <figure class="mv-mood">
                                     <img src="images/muchi/thriving.webp" alt="">
-                                    <figcaption>Thriving</figcaption>
                                 </figure>
                             </div>
                         </figure>
@@ -142,17 +138,20 @@
 
                 <section class="case-study-band case-study-band--media scroll-fade">
                     <div class="mv">
-                        <figure class="mv-stage mv-stage--beige mv-logo" role="img" aria-label="Shari's hand-drawn sketch of the Muchi logo, with an arrow to the final black Muchi wordmark">
-                            <p class="mv-eyebrow">The logo</p>
-                            <div class="mv-sketch">
-                                <img src="images/muchi/logo-sketch.webp" alt="">
-                            </div>
-                            <svg class="mv-logo-arrow" viewBox="0 0 80 32" fill="none" stroke="#242326" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                                <path d="M3 18c14-6 30 4 46-2 8-3 14-5 24-2"/>
-                                <path d="M64 6l10 8-12 6"/>
-                            </svg>
-                            <img class="mv-logo-final" src="images/muchi/logo-ink.svg" alt="">
-                        </figure>
+                        <div class="mv-pairs">
+                            <figure class="mv-tile mv-tile--white">
+                                <img class="mv-tile-sketch" src="images/muchi/logo-sketch.webp" alt="Shari's hand-drawn sketch of the Muchi logo">
+                            </figure>
+                            <figure class="mv-tile">
+                                <img class="mv-tile-logo" src="images/muchi/logo-ink.svg" alt="The final Muchi wordmark in black">
+                            </figure>
+                            <figure class="mv-tile">
+                                <img class="mv-tile-photo" src="images/muchi/watercolour.webp?v=6" alt="A green watercolour painting of Muchi on paper">
+                            </figure>
+                            <figure class="mv-tile">
+                                <img class="mv-tile-pet" src="images/muchi/thriving.webp" alt="The final green Muchi character">
+                            </figure>
+                        </div>
                     </div>
                 </section>
 
@@ -177,7 +176,7 @@
                 <section class="case-study-band scroll-fade">
                     <p class="case-study-band-eyebrow">Design system</p>
                     <h2 class="case-study-band-title">The tokens behind Muchi</h2>
-                    <p class="case-study-band-body">These are the colours, type styles and spacing from the Muchi app itself, kept in sync between Figma and code with the Figma Console MCP.</p>
+                    <p class="case-study-band-body">These are the colours and type styles from the Muchi app itself, kept in sync between Figma and code with the Figma Console MCP.</p>
                 </section>
 
                 <section class="case-study-band case-study-band--media scroll-fade">
@@ -231,24 +230,6 @@
                                 <li><small>H4</small><small>18 px</small><p style="font-family: var(--mv-display); font-weight: 700; font-size: 18px;">Recent meals</p></li>
                                 <li><small>Body</small><small>16 / 26 px</small><p style="font-size: 16px; line-height: 26px; letter-spacing: -0.5px;">Plants eaten this week</p></li>
                                 <li><small>Eyebrow</small><small>12 / 16 px</small><p style="font-family: var(--mv-mono); font-size: 12px; line-height: 16px; letter-spacing: 0.72px; text-transform: uppercase;">Fibre eaten today</p></li>
-                            </ul>
-                        </div>
-
-                        <div class="mv-ds-section">
-                            <h3 class="mv-ds-title">Spacing</h3>
-                            <p class="mv-ds-note">A 4 px base step. Shown at three times true size.</p>
-                            <ul class="mv-spacing">
-                                <li style="--v: 4;"><b>4</b><i></i>XXXXXS</li>
-                                <li style="--v: 8;"><b>8</b><i></i>XXXXS</li>
-                                <li style="--v: 12;"><b>12</b><i></i>XXXS</li>
-                                <li style="--v: 16;"><b>16</b><i></i>XXS</li>
-                                <li style="--v: 18;"><b>18</b><i></i>XS</li>
-                                <li style="--v: 24;"><b>24</b><i></i>S</li>
-                                <li style="--v: 32;"><b>32</b><i></i>M</li>
-                                <li style="--v: 40;"><b>40</b><i></i>L</li>
-                                <li style="--v: 48;"><b>48</b><i></i>XL</li>
-                                <li style="--v: 56;"><b>56</b><i></i>XXL</li>
-                                <li style="--v: 72;"><b>72</b><i></i>XXXL</li>
                             </ul>
                         </div>
                     </div>
