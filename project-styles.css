@@ -965,7 +965,11 @@
 /* Redesign dark theme overrides for project pages */
 .muchi-judgment-container,
 .muchi-judgment-scroll {
-    background: #f2f2f2;
+    background: #14180e;
+}
+
+.muchi-judgment-container {
+    border: 1px solid var(--rule);
 }
 
 .case-study-scroll .muchi-judgment-container {
@@ -979,7 +983,7 @@
 .case-study-scroll .muchi-judgment-scroll {
     margin: 0;
     padding: 0;
-    scrollbar-color: #c1c1c1 transparent;
+    scrollbar-color: var(--rule) transparent;
 }
 
 .case-study-scroll .muchi-judgment-grid {
@@ -1002,12 +1006,12 @@
 }
 
 .muchi-judgment-title {
-    color: #111111;
-    background-color: #f2f2f2;
+    color: #ffffff;
+    background-color: #14180e;
 }
 
 .muchi-judgment-headers p {
-    color: #111111;
+    color: var(--text-muted);
 }
 
 .muchi-judgment-card p {
@@ -1015,8 +1019,8 @@
 }
 
 .muchi-judgment-card {
-    background-color: #14180e;
-    border: 1px solid var(--rule);
+    background-color: var(--card);
+    border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .muchi-judgment-tag {
@@ -1026,7 +1030,7 @@
 }
 
 .muchi-judgment-divider {
-    background: rgba(17, 17, 17, 0.12);
+    background: var(--rule);
 }
 
 .case-study-flow--light {
