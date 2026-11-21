@@ -1037,6 +1037,13 @@
     background: transparent;
 }
 
+/* Round only the outer corners: left and right on desktop, top and bottom when stacked */
+.case-study-media-pair {
+    border-radius: 16px;
+    overflow: hidden;
+    isolation: isolate;
+}
+
 .case-study-media-pair .muchi-brand-panel {
     min-height: 420px;
     display: flex;
