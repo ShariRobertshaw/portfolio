@@ -18,10 +18,11 @@
     
     <title>Muchi - Shari Robertshaw</title>
     <link rel="stylesheet" href="styles.css?v=57">
-    <link rel="stylesheet" href="project-styles.css?v=52">
+    <link rel="stylesheet" href="project-styles.css?v=54">
+    <link rel="stylesheet" href="muchi-visuals.css?v=6">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=DM+Sans:wght@400;500&family=DM+Mono:wght@400&display=swap" rel="stylesheet">
 </head>
 <body>
     <div id="nav-container"></div>
@@ -59,7 +60,9 @@
             <div class="case-study-scroll">
                 <section class="case-study-band case-study-band--media">
                     <div class="case-study-hero-media">
-                        <img src="images/muchi-hero-image.png" alt="Muchi app on mobile devices">
+                        <video autoplay loop muted playsinline aria-label="Muchi app on mobile devices">
+                            <source src="images/muchi-hero.mp4" type="video/mp4">
+                        </video>
                     </div>
                 </section>
 
@@ -118,8 +121,109 @@
                 </section>
 
                 <section class="case-study-band case-study-band--media scroll-fade">
-                    <div class="case-study-flow case-study-flow--light">
-                        <img src="images/muchi-flow.png" alt="Muchi app screens: Today, Add food, and Your stats">
+                    <div class="mv">
+                        <figure class="mv-stage mv-stage--cream mv-moods" role="img" aria-label="The three hand-painted Muchi moods: a purple hungry Muchi, an orange happy Muchi and a green thriving Muchi">
+                            <div class="mv-moods-row">
+                                <figure class="mv-mood">
+                                    <img src="images/muchi/hungry.gif" alt="">
+                                </figure>
+                                <figure class="mv-mood">
+                                    <img src="images/muchi/happy.gif" alt="">
+                                </figure>
+                                <figure class="mv-mood">
+                                    <img src="images/muchi/thriving.webp" alt="">
+                                </figure>
+                            </div>
+                        </figure>
+                    </div>
+                </section>
+
+                <section class="case-study-band case-study-band--media scroll-fade">
+                    <div class="mv">
+                        <div class="mv-pairs">
+                            <figure class="mv-tile mv-tile--white">
+                                <img class="mv-tile-sketch" src="images/muchi/logo-sketch.webp" alt="Shari's hand-drawn sketch of the Muchi logo">
+                            </figure>
+                            <figure class="mv-tile">
+                                <img class="mv-tile-logo" src="images/muchi/logo-ink.svg" alt="The final Muchi wordmark in black">
+                            </figure>
+                            <figure class="mv-tile">
+                                <img class="mv-tile-photo" src="images/muchi/watercolour.webp?v=6" alt="A green watercolour painting of Muchi on paper">
+                            </figure>
+                            <figure class="mv-tile">
+                                <img class="mv-tile-pet" src="images/muchi/thriving.webp" alt="The final green Muchi character">
+                            </figure>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="case-study-band scroll-fade">
+                    <p class="case-study-band-eyebrow">Design system</p>
+                    <h2 class="case-study-band-title">The tokens behind Muchi</h2>
+                    <p class="case-study-band-body">These are the colours and type styles from the Muchi app itself, kept in sync between Figma and code with the Figma Console MCP.</p>
+                </section>
+
+                <section class="case-study-band case-study-band--media scroll-fade">
+                    <div class="mv mv-ds">
+                        <div class="mv-ds-section">
+                            <h3 class="mv-ds-title">Colour</h3>
+                            <p class="mv-ds-note">Warm creams for the page, ink for text, and the three mood colours that show how Muchi is feeling. Hover over a colour.</p>
+                            <ul class="mv-colour-bar">
+                                <li style="--c: #f9f6f0;"><span>Cream 100<br>#F9F6F0</span></li>
+                                <li style="--c: #f2e7d0;"><span>Cream 200<br>#F2E7D0</span></li>
+                                <li style="--c: #d1e02b;"><span>Green<br>#D1E02B</span></li>
+                                <li style="--c: #fd7d17;"><span>Orange<br>#FD7D17</span></li>
+                                <li style="--c: #937ed9; --fg: #fff;"><span>Purple<br>#937ED9</span></li>
+                                <li style="--c: #da4607; --fg: #fff;"><span>Red<br>#DA4607</span></li>
+                                <li style="--c: #242326; --fg: #f9f6f0;"><span>Ink 900<br>#242326</span></li>
+                            </ul>
+                            <ul class="mv-colour-legend">
+                                <li style="--c: #f9f6f0;"><i></i>Cream 100<code>#F9F6F0</code></li>
+                                <li style="--c: #f2e7d0;"><i></i>Cream 200<code>#F2E7D0</code></li>
+                                <li style="--c: #d1e02b;"><i></i>Green, thriving<code>#D1E02B</code></li>
+                                <li style="--c: #fd7d17;"><i></i>Orange, happy<code>#FD7D17</code></li>
+                                <li style="--c: #937ed9;"><i></i>Purple, hungry<code>#937ED9</code></li>
+                                <li style="--c: #da4607;"><i></i>Red, errors<code>#DA4607</code></li>
+                                <li style="--c: #242326;"><i></i>Ink 900<code>#242326</code></li>
+                            </ul>
+                        </div>
+
+                        <div class="mv-ds-section">
+                            <h3 class="mv-ds-title">Typography</h3>
+                            <div class="mv-type-cards">
+                                <div class="mv-type-card">
+                                    <b style="font-family: var(--mv-display); font-weight: 700;">Aa</b>
+                                    <strong>Zalando Sans</strong>
+                                    <span>Headings and buttons, Bold</span>
+                                </div>
+                                <div class="mv-type-card">
+                                    <b style="font-family: var(--mv-text);">Aa</b>
+                                    <strong>DM Sans</strong>
+                                    <span>Body and interface text</span>
+                                </div>
+                                <div class="mv-type-card">
+                                    <b style="font-family: var(--mv-mono);">Aa</b>
+                                    <strong>DM Mono</strong>
+                                    <span>Eyebrows, chips and nav</span>
+                                </div>
+                            </div>
+                            <ul class="mv-type-scale">
+                                <li><small>H1</small><small>40 px</small><p style="font-family: var(--mv-display); font-weight: 700; font-size: 40px;">Today</p></li>
+                                <li><small>H2</small><small>32 px</small><p style="font-family: var(--mv-display); font-weight: 700; font-size: 32px;">Your stats</p></li>
+                                <li><small>H3</small><small>24 px</small><p style="font-family: var(--mv-display); font-weight: 700; font-size: 24px;">Add food</p></li>
+                                <li><small>H4</small><small>18 px</small><p style="font-family: var(--mv-display); font-weight: 700; font-size: 18px;">Recent meals</p></li>
+                                <li><small>Body</small><small>16 / 26 px</small><p style="font-size: 16px; line-height: 26px; letter-spacing: -0.5px;">Plants eaten this week</p></li>
+                                <li><small>Eyebrow</small><small>12 / 16 px</small><p style="font-family: var(--mv-mono); font-size: 12px; line-height: 16px; letter-spacing: 0.72px; text-transform: uppercase;">Fibre eaten today</p></li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="case-study-band case-study-band--media scroll-fade">
+                    <div class="mv">
+                        <div class="mv-stage mv-stage--cream mv-flow">
+                            <img src="images/muchi-flow.png" alt="Muchi app screens: Today, Add food, and Your stats">
+                        </div>
                     </div>
                 </section>
 
