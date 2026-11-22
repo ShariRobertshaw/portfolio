@@ -22,7 +22,8 @@
     align-items: center;
     justify-content: center;
     box-sizing: border-box;
-    background: transparent;
+    /* Same light green as the Gener8 card on the home page */
+    background: #e0e7d8;
     padding: 56px;
 }
 
@@ -1031,6 +1032,19 @@
 
 .muchi-judgment-divider {
     background: var(--rule);
+}
+
+/* Light grey panel for images designed on white, like wireframes */
+.case-study-flow--grey {
+    background: #f2f2f2;
+    border-radius: 16px;
+    padding: 48px 40px;
+}
+
+@media (max-width: 768px) {
+    .case-study-flow--grey {
+        padding: 24px 16px;
+    }
 }
 
 .case-study-flow--light {
